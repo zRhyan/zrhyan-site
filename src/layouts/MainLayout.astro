@@ -1,0 +1,22 @@
+---
+// Tailwind CSS import.
+import './src/styles/global.css'
+
+// Impoert components.
+import MainHead from "./MainHead.astro"
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { title = "Default Title", description = "Default Description" } = 
+Astro.props as Props;
+---
+
+<html lang="en">
+	<MainHead {title} {description} />
+	<body>
+       <slot>Default Text</slot> 
+	</body>
+</html>

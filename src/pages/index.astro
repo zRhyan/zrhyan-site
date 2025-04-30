@@ -1,16 +1,31 @@
 ---
+// Tailwind CSS import
 import './src/styles/global.css'
+
+
+// Testing JS in Astro.
+const str = "Rhyan"
+const num = 0
+const obj = {
+	name: str,
+	number: num,
+	favorites: ["astro", "css", "js"]
+}
+
+// Fucntion to turn some elements visible or not:
+const isVisible = true;
+
+// Components imports
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Home" description="Home page description">
+	<h1 class="text-3xl font-bold underline">Hello world!</h1>
+	<p>Default text from index</p>
+	<p>{str}</p>
+	<p>{num}</p>
+	<p>{obj.name}</p>
+	<p>{obj.number}</p>
+	<p>{obj.favorites[0]}</p>
+	{isVisible && <p>This is visible</p>}
+</MainLayout>
