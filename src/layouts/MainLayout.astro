@@ -2,8 +2,9 @@
 // Tailwind CSS import.
 import './src/styles/global.css'
 
-// Impoert components.
+// Import components.
 import MainHead from "./MainHead.astro"
+import Footer from "../components/Footer.astro"
 
 interface Props {
     title?: string;
@@ -17,6 +18,7 @@ Astro.props as Props;
 <html lang="en">
 	<MainHead {title} {description} />
 	<body>
-       <slot>Default Text</slot> 
-	</body>
+       <slot>Default Text</slot>
+       <Footer /> 
+    </body>
 </html>

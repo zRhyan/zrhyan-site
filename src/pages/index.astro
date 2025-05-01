@@ -22,10 +22,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 <MainLayout title="Home" description="Home page description">
 	<h1 class="text-3xl font-bold underline">Hello world!</h1>
 	<p>Default text from index</p>
-	<p>{str}</p>
+	<p style="font-size: 4rem;">{str}</p>
 	<p>{num}</p>
 	<p>{obj.name}</p>
 	<p>{obj.number}</p>
 	<p>{obj.favorites[0]}</p>
 	{isVisible && <p>This is visible</p>}
 </MainLayout>
+
+<style>
+	
+</style>
