@@ -13,11 +13,24 @@
   }
 }
 
-.skeleton {
-  background: #e5e7eb; /* Light gray */
-  border-radius: 0.5rem;
-  animation: pulse 1.5s infinite;
+@layer utilities {
+  .skeleton {
+    background: #e5e7eb; /* Light gray */
+    border-radius: 0.5rem;
+    animation: pulse 1.5s infinite;
+  }
+  .gradient-border {
+    border-image: linear-gradient(
+      to right,
+      var(--color-secondary) 0%,
+      #B91C1C 40%,
+      #000000 50%,
+      #15295F 60%,
+      var(--color-primary) 100%
+    ) 1;
+  }
 }
+
 @keyframes pulse {
   0% { opacity: 1; }
   50% { opacity: 0.5; }
