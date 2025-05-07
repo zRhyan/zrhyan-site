@@ -1,18 +1,6 @@
 # 🌟 Rhyan’s Blog 🚀
 
-Welcome to the repository for **Rhyan’s Blog**, a sleek and modern personal website built with **Astro** and **Tailwind CSS**! This project is my creative space to share ideas on **philosophy, AI, neuroscience, and physics**, while showcasing my portfolio for freelance writing on platforms like 99Freelas. With a minimalist design, multilingual support (English/Portuguese), and smooth animations, this site is both a professional portfolio and a foundation for my future content creation dreams! ✨
-
----
-
-## 🎯 Purpose of the Site
-
-This website serves as a **personal blog and portfolio** to:
-- **Share Insights**: Publish 3–5 blog posts exploring deep topics like AI ethics, neuroscience, and philosophy.
-- **Showcase Skills**: Highlight my writing and web development skills for freelance opportunities on 99Freelas.
-- **Build a Brand**: Create a premium, minimalist aesthetic (inspired by Vercel) with animations (progressive loading, hover effects) and multilingual support (English/Portuguese).
-- **Grow Over Time**: Lay the groundwork for a future science/philosophy media platform.
-
-The site features a **responsive header** (logo, navigation, social icons), a **main section** (intro, recent posts), a **footer**, and **progressive loading** for optimal performance. It’s designed to be **accessible**, **performant**, and **easy to maintain**, reflecting my passion for learning and creativity! 🌍
+Welcome to the repository for **Rhyan’s Blog**, a sleek and modern personal website built with **Astro** and **Tailwind CSS**! This project is my creative space to share ideas on **Philosophy, AI, Neuroscience, Art, Physics, Mathematics and more**, while showcasing my portfolio for freelance writing. With a elegant design, multilingual support (English/Portuguese), and smooth animations, this site is both a professional portfolio and a foundation for my future content creation! ✨
 
 ---
 
@@ -22,8 +10,6 @@ Get started with **Astro** and **Tailwind CSS v4** to run this project locally. 
 
 ### Prerequisites
 - **Node.js** (v18+): Install from [nodejs.org](https://nodejs.org) and verify with `node -v` and `npm -v`.
-- **Code Editor**: [Visual Studio Code](https://code.visualstudio.com) with extensions: **Astro**, **Tailwind CSS IntelliSense**, **Prettier**.
-- **Terminal**: Use VS Code’s built-in terminal or your preferred command-line tool.
 
 ### Step 1: Clone the Repository
 ```bash
@@ -50,7 +36,7 @@ cd rhyan-blog
    ```
 
 ### Step 3: Install Tailwind CSS v4
-Tailwind CSS v4 is integrated via the official Vite plugin. Follow these steps based on your Astro version:
+Tailwind CSS v4 is integrated via the official Vite plugin. Follow these steps based on your Astro version (Astro docs on [Tailwind](https://docs.astro.build/en/guides/styling/#tailwind)):
 
 #### For Astro >=5.2.0 (Recommended) 🚀
 Use the `astro add` command to automatically install and configure Tailwind CSS v4:
@@ -186,13 +172,3 @@ rhyan-blog/
 - **Translations**: `src/i18n/` holds JSON files for English and Portuguese text.
 
 This structure supports **progressive loading**, **animations**, and **accessibility**, making the site both functional and future-proof! 🚀
-
----
-
-## ✨ Get Involved!
-
-Want to contribute or explore the code? Clone the repo, follow the installation steps, and dive in! If you have ideas for new features (e.g., more animations, additional languages), open an issue or PR. Let’s build something amazing together! 🌈
-
-📬 **Contact**: Reach out on [X](https://x.com/yourprofile) or [LinkedIn](https://linkedin.com/in/yourprofile) for feedback or freelance opportunities.
-
-Happy coding! 🎉
