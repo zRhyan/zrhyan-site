@@ -23,27 +23,35 @@ import Header from "../components/Header.astro";
 ---
 
 <MainLayout title="Home">
-  <section class="max-w-5xl mx-auto py-12 px-4 text-center">
-    <img src="/logo.png" alt="Rhyan’s Logo" class="mx-auto h-32 mb-6" />
-    <h1 class="text-4xl font-bold text-primary mb-4">Rhyan’s Blog</h1>
-    <p class="text-lg text-black max-w-2xl mx-auto mb-8">
-      Exploring what interest me in this Universe.
-    </p>
-    <a href="/posts" class="bg-primary text-white font-semibold py-2 px-6 rounded-full hover:bg-secondary">
-      Read My Posts
-    </a>
-  </section>
-  <section class="max-w-5xl mx-auto py-12 px-4">
-    <h2 class="text-3xl font-bold text-primary mb-6">Recent Posts</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Placeholder for posts -->
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-semibold text-black">Post Title</h3>
-        <p class="text-black">Coming soon...</p>
-      </div>
-    </div>
-  </section>
-</MainLayout>
+	<section class="max-w-5xl mx-auto py-12 px-4 text-center">
+	  <div data-astro-skeleton>
+		<div class="skeleton h-32 w-32 mx-auto mb-6 rounded-full"></div>
+		<div class="skeleton h-10 w-3/4 mx-auto mb-4"></div>
+		<div class="skeleton h-6 w-1/2 mx-auto mb-8"></div>
+		<div class="skeleton h-10 w-32 mx-auto rounded-full"></div>
+	  </div>
+	  <div class="hidden" data-astro-content>
+		<img src="/logo.png" alt="Rhyan’s Logo" class="mx-auto h-32 mb-6" />
+		<h1 class="text-4xl font-bold text-primary mb-4">Rhyan’s Blog</h1>
+		<p class="text-lg text-black max-w-2xl mx-auto mb-8">
+		  Exploring what interests me in this Universe.
+		</p>
+		<a href="/posts" class="bg-primary text-white font-semibold py-2 px-6 rounded-full hover:bg-secondary">
+		  Read My Posts
+		</a>
+	  </div>
+	</section>
+	<script>
+	  document.addEventListener('DOMContentLoaded', () => {
+		const skeleton = document.querySelector('[data-astro-skeleton]');
+		const content = document.querySelector('[data-astro-content]');
+		setTimeout(() => {
+		  if (skeleton) skeleton.classList.add('hidden');
+		  if (content) content.classList.remove('hidden');
+		}, 1000);
+	  });
+	</script>
+  </MainLayout>
 <style>
 	
 </style>

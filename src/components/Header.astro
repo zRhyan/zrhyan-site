@@ -6,17 +6,43 @@
 
 <header class="bg-black text-white py-4">
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 gap-4">
-    <div>
-      <img src="/logo.png" alt="Rhyan’s Logo" class="h-10" />
-    </div>
+    <div class="skeleton h-10 w-32 md:w-40" astro-skeleton></div>
     <nav class="flex flex-col md:flex-row gap-4 md:gap-6">
-      <a href="/" class="hover:text-secondary">Home</a>
-      <a href="/posts" class="hover:text-secondary">Posts</a>
-      <a href="/about" class="hover:text-secondary">About Me</a>
+      <div class="skeleton h-6 w-16" astro-skeleton></div>
+      <div class="skeleton h-6 w-16" astro-skeleton></div>
+      <div class="skeleton h-6 w-20" astro-skeleton></div>
     </nav>
     <div class="flex gap-4">
-      <a href="https://x.com/yourprofile"><img src="/x-icon.png" alt="X" class="h-6" /></a>
-      <a href="https://linkedin.com/in/yourprofile"><img src="/linkedin-icon.png" alt="LinkedIn" class="h-6" /></a>
+      <div class="skeleton h-6 w-6 rounded-full" astro-skeleton></div>
+      <div class="skeleton h-6 w-6 rounded-full" astro-skeleton></div>
+    </div>
+  </div>
+  <div class="hidden" astro-content>
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 gap-4">
+      <div>
+        <img src="/logo.png" alt="Rhyan’s Logo" class="h-10" />
+      </div>
+      <nav class="flex flex-col md:flex-row gap-4 md:gap-6">
+        <a href="/" class="hover:text-secondary">Home</a>
+        <a href="/posts" class="hover:text-secondary">Posts</a>
+        <a href="/about" class="hover:text-secondary">About Me</a>
+      </nav>
+      <div class="flex gap-4">
+        <a href="https://x.com/yourprofile"><img src="/x-icon.png" alt="X" class="h-6" /></a>
+        <a href="https://linkedin.com/in/yourprofile"><img src="/linkedin-icon.png" alt="LinkedIn" class="h-6" /></a>
+      </div>
     </div>
   </div>
 </header>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const skeletons = document.querySelectorAll('[astro-skeleton]');
+    const content = document.querySelector('[astro-content]');
+    setTimeout(() => {
+      skeletons.forEach(el => el.classList.add('hidden'));
+      if (content) {
+        content.classList.remove('hidden');
+      }
+    }, 1000);
+  });
+</script>
