@@ -1,1 +1,14 @@
+/* src/styles/global.css */
+
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    @theme {
+      --color-primary: #1E3A8A; /* Dark blue */
+      --color-secondary: #EF4444; /* Red */
+      --color-black: #000000;
+      --color-white: #FFFFFF;
+    }
+  }
+}
