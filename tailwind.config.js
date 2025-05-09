@@ -15,8 +15,9 @@ Would you like an example of how to configure Tailwind directly in your CSS file
 https://tailwindcss.com/blog/tailwindcss-v4
 */
 
-/** / @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
+  darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
 };
