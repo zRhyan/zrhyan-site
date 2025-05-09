@@ -5,42 +5,71 @@
 ---
 
 <header class="bg-black text-white py-4 border-b-2 gradient-border">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 gap-4">
+  <!-- Tailwind classes used in <div> below.
+  max-w-6xl =
+  max-width: 72rem;
+
+  mx-auto =
+  margin-left: auto;
+  margin-right: auto;
+
+  flex =
+  display: flex;
+  -->
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
     <div class="skeleton h-10 w-32 md:w-40" data-astro-skeleton></div>
-    <nav class="flex flex-col md:flex-row gap-4 md:gap-6">
-      <div class="skeleton h-6 w-16" data-astro-skeleton></div>
-      <div class="skeleton h-6 w-16" data-astro-skeleton></div>
-      <div class="skeleton h-6 w-20" data-astro-skeleton></div>
-    </nav>
-    <div class="flex gap-4">
-      <div class="skeleton h-5 w-5 rounded-full" data-astro-skeleton></div>
-      <div class="skeleton h-5 w-5 rounded-full" data-astro-skeleton></div>
-      <div class="skeleton h-5 w-5 rounded-full" data-astro-skeleton></div>
-      <div class="skeleton h-5 w-5 rounded-full" data-astro-skeleton></div>
-    </div>
+    <div class="skeleton h-6 w-6" data-astro-skeleton></div>
   </div>
   <div class="hidden" data-astro-content>
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 gap-4">
+    <div class="max-w-6xl mx-auto flex items-center px-4">
       <div>
         <img src="/logos/logo.png" alt="Rhyan’s Logo" class="h-10" />
       </div>
-      <nav class="flex flex-col md:flex-row gap-4 md:gap-6">
+      <button class="md:hidden ml-auto" id="hamburger-toggle" aria-label="Toggle Menu">
+        <svg class="h-6 w-6 fill-white" viewBox="0 0 24 24">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+        </svg>
+      </button>
+      <div class="hidden md:flex md:gap-6 flex-1 justify-center" id="menu-content">
+        <nav class="flex flex-col md:flex-row gap-4 md:gap-6">
+          <a href="/" class="hover:text-secondary">Home</a>
+          <a href="/posts" class="hover:text-secondary">Posts</a>
+          <a href="/about" class="hover:text-secondary">About Me</a>
+        </nav>
+      </div>
+      <div class="hidden md:flex md:flex-row gap-4 md:gap-4">
+        <a href="https://x.com/zzzRhYaN" aria-label="Follow on X">
+          <img src="/logo-x-white.svg" alt="X Logo" class="h-5 w-5" />
+        </a>
+        <a href="https://github.com/zRhyan" aria-label="Follow on GitHub">
+          <img src="/logo-github-white.svg" alt="GitHub Logo" class="h-5 w-5" />
+        </a>
+        <a href="https://www.linkedin.com/in/zrhyan/" aria-label="Follow on LinkedIn">
+          <img src="/logo-In-white.png" alt="LinkedIn Logo" class="h-5 w-5" />
+        </a>
+        <a href="https://www.youtube.com/@0rhyan" aria-label="Follow on YouTube">
+          <img src="/logo-yt-white.svg" alt="YouTube Logo" class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+    <div class="hidden md:hidden bg-black px-4 py-4" id="mobile-menu">
+      <nav class="flex flex-col gap-4">
         <a href="/" class="hover:text-secondary">Home</a>
         <a href="/posts" class="hover:text-secondary">Posts</a>
         <a href="/about" class="hover:text-secondary">About Me</a>
       </nav>
-      <div class="flex gap-4">
-        <a href="https://x.com/yourprofile" aria-label="Follow on X">
-          <img src="/public/logo-x-white.svg" alt="X Logo" class="h-5 w-5" />
+      <div class="flex gap-4 mt-4">
+        <a href="https://x.com/zzzRhYaN" aria-label="Follow on X">
+          <img src="/logo-x-white.svg" alt="X Logo" class="h-5 w-5" />
         </a>
-        <a href="https://github.com/yourprofile" aria-label="Follow on GitHub">
-          <img src="/public/logo-github-white.svg" alt="GitHub Logo" class="h-5 w-5" />
+        <a href="https://github.com/zRhyan" aria-label="Follow on GitHub">
+          <img src="/logo-github-white.svg" alt="GitHub Logo" class="h-5 w-5" />
         </a>
-        <a href="https://linkedin.com/in/yourprofile" aria-label="Follow on LinkedIn">
-          <img src="/public/logo-In-white.png" alt="LinkedIn Logo" class="h-5 w-5" />
+        <a href="https://www.linkedin.com/in/zrhyan/" aria-label="Follow on LinkedIn">
+          <img src="/logo-In-white.png" alt="LinkedIn Logo" class="h-5 w-5" />
         </a>
-        <a href="https://youtube.com/yourprofile" aria-label="Follow on YouTube">
-          <img src="/public/logo-yt-white.svg" alt="YouTube Logo" class="h-5 w-5" />
+        <a href="https://www.youtube.com/@0rhyan" aria-label="Follow on YouTube">
+          <img src="/logo-yt-white.svg" alt="YouTube Logo" class="h-5 w-5" />
         </a>
       </div>
     </div>
@@ -50,9 +79,18 @@
   document.addEventListener('DOMContentLoaded', () => {
     const skeletons = document.querySelectorAll('[data-astro-skeleton]');
     const content = document.querySelector('[data-astro-content]');
+    const hamburgerToggle = document.querySelector('#hamburger-toggle');
+    const mobileMenu = document.querySelector('#mobile-menu');
+
     setTimeout(() => {
       skeletons.forEach(el => el.classList.add('hidden'));
       if (content) content.classList.remove('hidden');
     }, 1000);
+
+    if (hamburgerToggle && mobileMenu) {
+      hamburgerToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
   });
 </script>
