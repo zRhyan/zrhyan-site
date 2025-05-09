@@ -41,6 +41,15 @@
   }
 }
 
+  /*  ↓–––––––––– Dark palette (overrides when .dark is on <html>) ––––––––––↓ */
+  .dark {
+    --color-primary: #93c5fd;   /* soft blue */
+    --color-secondary: #f87171; /* soft red */
+    --color-white: #000000;
+    --color-black: #ffffff;
+  }
+
+
 @keyframes pulse {
   0% { opacity: 1; }
   50% { opacity: 0.5; }

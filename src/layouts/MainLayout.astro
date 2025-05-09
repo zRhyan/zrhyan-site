@@ -22,15 +22,38 @@ Astro.props as Props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Rhyan’s Blog</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!--  ↓––––––––––––––––  Critical: set theme BEFORE CSS to eliminate flash  ––––––––––––––––↓ -->
+    <script>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && preferDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+    <!--  ↑–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––↑ -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-black text-white font-inter">
+
+  <body
+    class="min-h-screen bg-white text-black antialiased transition-colors duration-300 dark:bg-black dark:text-white"
+  >
     <Header />
-    <main>
+
+    <main class="mx-auto max-w-6xl px-4 py-10">
       <slot />
     </main>
+
     <Footer />
   </body>
 </html>
