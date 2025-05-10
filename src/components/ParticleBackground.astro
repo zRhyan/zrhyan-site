@@ -1,0 +1,24 @@
+---
+// src/components/ParticleBackground.astro
+
+---
+
+<div class="particle-background-wrapper">
+  <canvas id="particle-canvas"></canvas>
+</div>
+
+<script type="module" src="/particles/particles-network.js" />
+<style>
+  .particle-background-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: -1; /* ensure it’s behind all content */
+    overflow: hidden;
+  }
+
+  canvas#particle-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>
