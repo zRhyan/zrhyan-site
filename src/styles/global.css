@@ -44,7 +44,7 @@ html.dark footer {
 }
 
 /* Step 4: Add elegant gradient border styling */
-.gradient-border {
+html.dark .gradient-border {
   border-image: linear-gradient(
     to right,
     var(--color-secondary) 0%,
@@ -55,7 +55,7 @@ html.dark footer {
   ) 1;
 }
 
-html.dark .gradient-border {
+.gradient-border {
   border-image: linear-gradient(
     to right,
     var(--color-primary) 0%,
