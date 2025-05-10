@@ -1,0 +1,76 @@
+---
+// src/pages/theme-test-page.astro
+import '../styles/global.css';
+import MainLayout from "../layouts/MainLayout.astro";
+import ThemeDebug from "../components/ThemeDebug.astro";
+---
+
+<MainLayout title="Theme Test Page">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Theme Test Page</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <!-- Test Card 1 -->
+      <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
+        <h2 class="text-xl font-semibold mb-4">Light/Dark Background Test</h2>
+        <p class="text-gray-700 dark:text-gray-300">
+          This card should change background color in different themes.
+          White in light mode, dark gray in dark mode.
+        </p>
+      </div>
+      
+      <!-- Test Card 2 -->
+      <div class="p-6 bg-gray-100 dark:bg-black rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
+        <h2 class="text-xl font-semibold mb-4">Another Background Test</h2>
+        <p class="text-gray-700 dark:text-gray-300">
+          Light gray in light mode, black in dark mode.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Image Test -->
+    <div class="mb-8 p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800">
+      <h2 class="text-xl font-semibold mb-4">Image Visibility Test</h2>
+      
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <!-- Light mode only image -->
+        <div class="text-center">
+          <img 
+            src="https://via.placeholder.com/200x100/ffffff/000000?text=Light+Mode+Image" 
+            alt="Light Mode Only" 
+            class="block dark:hidden mb-2 border border-gray-300"
+          />
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            This image should only show in light mode
+          </p>
+        </div>
+        
+        <!-- Dark mode only image -->
+        <div class="text-center">
+          <img 
+            src="https://via.placeholder.com/200x100/000000/ffffff?text=Dark+Mode+Image" 
+            alt="Dark Mode Only" 
+            class="hidden dark:block mb-2 border border-gray-700"
+          />
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            This image should only show in dark mode
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text and Border Test -->
+    <div class="mb-8 border-l-4 border-primary pl-4">
+      <h2 class="text-xl font-semibold mb-2">Text Color Test</h2>
+      <p class="text-black dark:text-white mb-4">
+        This text should be black in light mode and white in dark mode.
+      </p>
+      
+      <p class="text-primary mb-4">This text uses the primary color.</p>
+      <p class="text-secondary">This text uses the secondary color.</p>
+    </div>
+    
+    <!-- Debug Information -->
+    <ThemeDebug />
+  </div>
+</MainLayout>

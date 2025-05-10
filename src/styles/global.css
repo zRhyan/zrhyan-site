@@ -1,54 +1,81 @@
 /* src/styles/global.css */
-
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    @theme {
-      --color-primary: #1E3A8A; /* Dark blue */
-      --color-secondary: #EF4444; /* Red */
-      --color-black: #000000;
-      --color-white: #FFFFFF;
-    }
-  }
+/* Step 1: Set dark mode to use class strategy in Astro Tailwind setup. */
+/* You don't need to change tailwind.config.js since Tailwind v4 uses CSS-first. */
+/* Define custom dark variant selector using @custom-variant */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Step 2: Define core color palette as theme variables */
+@theme {
+  --color-primary: #1E3A8A; /* Dark blue */
+  --color-secondary: #EF4444; /* Red */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
 }
 
-@layer utilities {
-  .skeleton {
-    background: #e5e7eb; /* Light gray */
-    border-radius: 0.5rem;
-    animation: pulse 1.5s infinite;
-  }
-  .gradient-border {
-    border-image: linear-gradient(
-      to right,
-      var(--color-secondary) 0%,
-      #B91C1C 40%,
-      #000000 50%,
-      #15295F 60%,
-      var(--color-primary) 100%
-    ) 1;
-  }
-  .dark .gradient-border {
-    border-image: linear-gradient(
-      to right,
-      var(--color-primary) 0%,
-      #15295F 40%,
-      #FFFFFF 50%,
-      #B91C1C 60%,
-      var(--color-secondary) 100%
-    ) 1;
-  }
+/* Step 3: Define dark/light mode behavior globally */
+
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-  /*  ↓–––––––––– Dark palette (overrides when .dark is on <html>) ––––––––––↓ */
-  .dark {
-    --color-primary: #93c5fd;   /* soft blue */
-    --color-secondary: #f87171; /* soft red */
-    --color-white: #000000;
-    --color-black: #ffffff;
-  }
+html.dark body {
+  background-color: black;
+  color: white;
+}
 
+header,
+nav#mobile-menu,
+footer {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark header,
+html.dark nav#mobile-menu,
+html.dark footer {
+  background-color: black;
+  color: white;
+}
+
+/* Step 4: Add elegant gradient border styling */
+.gradient-border {
+  border-image: linear-gradient(
+    to right,
+    var(--color-secondary) 0%,
+    #B91C1C 40%,
+    #000000 50%,
+    #15295F 60%,
+    var(--color-primary) 100%
+  ) 1;
+}
+
+html.dark .gradient-border {
+  border-image: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    #15295F 40%,
+    var(--color-white) 50%,
+    #B91C1C 60%,
+    var(--color-secondary) 100%
+  ) 1;
+}
+
+/* Step 5: Skeleton loader styling */
+.skeleton {
+  background: #e5e7eb;
+  border-radius: 0.5rem;
+  animation: pulse 1.5s infinite;
+}
+
+html.dark .skeleton {
+  background: #374151;
+}
 
 @keyframes pulse {
   0% { opacity: 1; }

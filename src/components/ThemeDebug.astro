@@ -1,0 +1,48 @@
+---
+// src/components/ThemeDebug.astro
+// A utility component to help debug theme issues
+---
+
+<div class="mt-8 p-4 bg-gray-100 dark:bg-gray-900 rounded border border-gray-300 dark:border-gray-700">
+  <h3 class="font-semibold mb-2">Theme Debug Info:</h3>
+  <p>HTML classes: <span id="html-classes">checking...</span></p>
+  <p>Body classes: <span id="body-classes">checking...</span></p>
+  <p>localStorage theme value: <span id="storage-value">checking...</span></p>
+  <p>System prefers dark mode: <span id="prefers-dark">checking...</span></p>
+  <p>Current theme applied: <span id="current-theme">checking...</span></p>
+</div>
+
+<script>
+  // Update debug displays
+  function updateDebugInfo() {
+    document.getElementById('html-classes').textContent = 
+      document.documentElement.classList.toString() || 'none';
+    document.getElementById('body-classes').textContent = 
+      document.body.classList.toString() || 'none';
+    document.getElementById('storage-value').textContent = 
+      localStorage.getItem('theme') || 'not set';
+    document.getElementById('prefers-dark').textContent = 
+      window.matchMedia('(prefers-color-scheme: dark)').matches ? 'yes' : 'no';
+    document.getElementById('current-theme').textContent = 
+      document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  }
+  
+  // Initial update
+  document.addEventListener('DOMContentLoaded', updateDebugInfo);
+  
+  // Update on theme change
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'theme') {
+      updateDebugInfo();
+    }
+  });
+  
+  // Add a listener for theme toggle clicks anywhere on the page
+  document.addEventListener('click', (e) => {
+    // Small delay to allow theme changes to apply first
+    setTimeout(updateDebugInfo, 100);
+  });
+  
+  // Initial update
+  updateDebugInfo();
+</script>

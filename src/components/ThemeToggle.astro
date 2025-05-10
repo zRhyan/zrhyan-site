@@ -1,0 +1,56 @@
+---
+// src/components/ThemeToggle.astro
+// Single, self-contained toggle placed bottom-right by parent layout
+---
+
+<button
+  id="theme-toggle"
+  aria-label="Toggle dark mode"
+  class="flex h-10 w-10 items-center justify-center rounded-full
+         bg-gray-200 text-gray-700 shadow-lg transition-colors duration-200
+         hover:ring-2 hover:ring-primary cursor-pointer
+         dark:bg-gray-800 dark:text-gray-300"
+>
+  <!-- Sun (shown only in dark mode) -->
+  <svg
+    id="icon-sun"
+    class="hidden h-5 w-5 text-yellow-400 dark:block"
+    viewBox="0 0 24 24" fill="currentColor"
+  >
+    <path d="M12 4.75a7.25 7.25 0 110 14.5 7.25 7.25 0 010-14.5zM12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M17.66 6.34l1.42-1.42M4.92 19.08l1.42-1.42"/>
+  </svg>
+
+  <!-- Moon (shown only in light mode) -->
+  <svg
+    id="icon-moon"
+    class="h-5 w-5 dark:hidden"
+    viewBox="0 0 24 24" fill="currentColor"
+  >
+    <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z"/>
+  </svg>
+</button>
+
+<script is:inline>
+  const btn      = document.getElementById('theme-toggle');
+  const root     = document.documentElement;
+  const sunIcon  = document.getElementById('icon-sun');
+  const moonIcon = document.getElementById('icon-moon');
+
+  /** Sync icons with current theme */
+  function syncIcons () {
+    const dark = root.classList.contains('dark');
+    sunIcon?.classList.toggle('hidden', !dark);
+    moonIcon?.classList.toggle('hidden',  dark);
+  }
+
+  /** Toggle theme and persist */
+  btn?.addEventListener('click', () => {
+    const dark = !root.classList.toggle('dark');
+    root.classList.toggle('dark', !dark);
+    localStorage.setItem('theme', !dark ? 'dark' : 'light');
+    syncIcons();
+  });
+
+  /* Initial icon state */
+  document.addEventListener('DOMContentLoaded', syncIcons);
+</script>

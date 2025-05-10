@@ -1,59 +1,58 @@
 ---
 // src/layouts/MainLayout.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
-// Tailwind CSS import.
-import './src/styles/global.css'
-
-// Import components.
-import Footer from "../components/Footer.astro"
-import Header from "../components/Header.astro"
-
-interface Props {
-    title?: string;
-    description?: string;
-}
-
-const { title = "Default Title", description = "Default Description" } = 
-Astro.props as Props;
+// Props
+const { title } = Astro.props;
 ---
-
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <!--  ↓––––––––––––––––  Critical: set theme BEFORE CSS to eliminate flash  ––––––––––––––––↓ -->
-    <script>
-      (() => {
-        const stored = localStorage.getItem("theme");
-        const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (stored === "dark" || (!stored && preferDark)) {
-          document.documentElement.classList.add("dark");
-        }
-      })();
-    </script>
-    <!--  ↑–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––↑ -->
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title ? `${title} | Rhyan's Site` : `Rhyan's Site`}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Apply theme immediately to prevent flash -->
+    <ThemeScript />
   </head>
-
-  <body
-    class="min-h-screen bg-white text-black antialiased transition-colors duration-300 dark:bg-black dark:text-white"
-  >
+  
+  <body>
     <Header />
-
-    <main class="mx-auto max-w-6xl px-4 py-10">
+    
+    <main class="mx-auto max-w-6xl px-4 py-8">
+      <!-- Theme Toggle Button in top-right corner -->
+      <div class="fixed right-4 top-20 z-30">
+        <ThemeToggle />
+      </div>
+      
       <slot />
     </main>
-
-    <Footer />
+    
+    <footer class="mt-12 border-t border-gray-200 py-6 text-center text-gray-600 dark:border-gray-800 dark:text-gray-400">
+      <div class="mx-auto max-w-6xl px-4">
+        <p>&copy; {new Date().getFullYear()} Rhyan's Site. All rights reserved.</p>
+      </div>
+    </footer>
+    
+    <script>
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+          });
+        }
+      });
+    </script>
   </body>
 </html>

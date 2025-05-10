@@ -1,0 +1,25 @@
+---
+// src/components/ThemeScript.astro
+// A script component to be placed in the head section for immediate theme application
+---
+
+<script is:inline>
+  // Critical theme script that runs immediately before page render
+  // This prevents flash of incorrect theme
+  (function() {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Check for system dark mode preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Apply dark mode if:
+    // 1. User explicitly chose dark mode, or
+    // 2. User has no preference but system is in dark mode
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  })();
+</script>
