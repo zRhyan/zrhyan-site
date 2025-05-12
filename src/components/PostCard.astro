@@ -1,4 +1,85 @@
 ---
 // src/components/PostCard.astro
 
+// Tailwind CSS import
+import '../styles/global.css'
+
+const { title, date, topic, image, link } = Astro.props;
 ---
+
+<a
+  href={link}
+  class="group relative block rounded-xl bg-white dark:bg-black shadow-md
+         transition-transform hover:scale-[1.015] overflow-hidden"
+>
+  <!-- PSEUDO-BORDER (drawn via ::before) -->
+  <span class="animated-border pointer-events-none absolute inset-0 rounded-xl"></span>
+
+  <!-- CARD CONTENT -->
+  <img src={image} alt={title} class="h-40 w-full object-cover rounded-t-xl" />
+  <div class="p-4">
+    <p class="text-xs text-gray-500 dark:text-gray-400">
+      {date} • {topic}
+    </p>
+    <h2 class="mt-1 text-lg font-semibold text-black dark:text-white">
+      {title}
+    </h2>
+  </div>
+</a>
+
+<style>
+/* -----------------------------------------------------------
+   1.  Custom CSS property – animatable <angle>
+----------------------------------------------------------- */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* -----------------------------------------------------------
+   2.  Base appearance of the animated border
+----------------------------------------------------------- */
+.animated-border {
+  --angle: 0deg;
+  --fill: var(--color-white);
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+html.dark .animated-border {
+  --fill: var(--color-black);
+}
+
+/* -----------------------------------------------------------
+   3.  Hover animation – half-turn sweep (0° → 180°)
+----------------------------------------------------------- */
+@keyframes border-sweep {
+  from { --angle: 0deg; }
+  to   { --angle: 180deg; }               /* half-turn only                 */
+}
+
+.group:hover .animated-border {
+  animation: border-sweep 1.2s ease forwards;
+  background: conic-gradient(
+    from var(--angle),
+    var(--color-secondary) 45deg,
+    var(--fill) 135deg,
+    var(--color-primary) 225deg,
+    var(--fill) 315deg,
+    var(--color-secondary) 405deg
+  ) border-box;
+  opacity: 1;
+}
+
+</style>

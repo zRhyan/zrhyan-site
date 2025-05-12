@@ -13,6 +13,9 @@
   --color-secondary: #EF4444; /* Red */
   --color-black: #000000;
   --color-white: #FFFFFF;
+
+  /* Used in PostCard border animation */
+  --bg-current: var(--color-white);  /* default for light mode */
 }
 
 /* Step 3: Define dark/light mode behavior globally */
@@ -26,6 +29,10 @@ body {
 html.dark body {
   background-color: black;
   color: white;
+}
+
+html.dark {
+  --bg-current: var(--color-black); /* dark override for animated borders */
 }
 
 header,
@@ -75,6 +82,27 @@ html.dark .gradient-border {
 
 html.dark .skeleton {
   background: #374151;
+}
+
+/* -----------------------------------------------------------
+   PostCard border-animation support
+   (Place these anywhere after the @theme block)
+----------------------------------------------------------- */
+
+/*  A.  Re-declare the same custom property globally
+        (keeps dev-tools warnings away in some browsers)       */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/*  B.  Ensure the theme neutrals are always available         */
+:root {
+  --fill: var(--color-white);
+}
+html.dark {
+  --fill: var(--color-black);
 }
 
 @keyframes pulse {
