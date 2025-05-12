@@ -1,1 +1,81 @@
+---
 // src/pages/posts.astro
+
+import MainLayout from '../layouts/MainLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import '../styles/global.css';
+
+// Topics as post-like cards (no date needed)
+const topics = [
+  {
+    title: 'Philosophy',
+    topic: 'Mind & Meaning',
+    image: '/topic-covers/philosophy-cover.png',
+    link: '/posts/philosophy',
+  },
+  {
+    title: 'Science',
+    topic: 'Exploration & Law',
+    image: '/topic-covers/science-cover.png',
+    link: '/posts/science',
+  },
+  {
+    title: 'Art',
+    topic: 'Beauty & Form',
+    image: '/topic-covers/art-cover.png',
+    link: '/posts/art',
+  },
+  {
+    title: 'Mathematics',
+    topic: 'Logic & Abstraction',
+    image: '/topic-covers/mathematics-cover.png',
+    link: '/posts/math',
+  },
+  {
+    title: 'Technology',
+    topic: 'Systems & Innovation',
+    image: '/images/topics/technology.jpg',
+    link: '/posts/technology',
+  },
+  {
+    title: 'Psychology',
+    topic: 'Mind & Behavior',
+    image: '/images/topics/psychology.jpg',
+    link: '/posts/psychology',
+  },
+  {
+    title: 'Sociology',
+    topic: 'Society & Structure',
+    image: '/images/topics/sociology.jpg',
+    link: '/posts/sociology',
+  },
+  {
+    title: 'History',
+    topic: 'Time & Transformation',
+    image: '/images/topics/history.jpg',
+    link: '/posts/history',
+  },
+];
+---
+<MainLayout title="Posts">
+  <section class="mb-12 text-center max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold mb-4 text-black dark:text-white">Explore by Topic</h1>
+    <p class="text-gray-600 dark:text-gray-400">
+      Dive into reflections across disciplines. Each topic is a portal to Rhyan’s most curious investigations and creative syntheses.
+    </p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {topics.map((topic) => (
+        <PostCard
+          title={topic.title}
+          date=""
+          topic={topic.topic}
+          image={topic.image}
+          link={topic.link}
+        />
+      ))}
+    </div>
+  </section>
+</MainLayout>
