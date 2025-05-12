@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateColors() {
     const isDark = document.documentElement.classList.contains('dark');
-    config.dotColor = isDark ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
+    config.dotColor = isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)';
     config.lineColor = isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)';
   }
 
