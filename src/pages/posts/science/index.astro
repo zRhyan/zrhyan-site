@@ -4,9 +4,9 @@ import TopicsLayout from '../../../layouts/TopicsLayout.astro';
 
 const posts = [
   {
-    title: 'The Essence of Thought',
+    title: 'The Essence of Scicence',
     date: '2025-04-12',
-    topic: 'Philosophy',
+    topic: 'Science',
     image: '/post-covers/test.jpg',
     link: '/posts/philosophy/thought'
   },
@@ -15,13 +15,14 @@ const posts = [
 ---
 
 <TopicsLayout
-  title="Philosophy"
-  banner="/topic-covers/philosophy-cover.png"
-  bannerPosition="10% 35%"
-  description="Philosophy investigates the fundamental nature of knowledge, reality, and existence."
+  title="Science"
+  banner="/topic-covers/science-cover.png"
+  bannerPosition="center 0%"
+  description="."
   posts={posts}
   font="Aref Ruqaa"
   fontSize="3.8rem"
   fontWeight="700"
   letterSpacing="0.08em"
+  bannerPosition="top"
 />

@@ -1,34 +1,28 @@
 ---
 // src/pages/posts/art/index.astro
+import TopicsLayout from '../../../layouts/TopicsLayout.astro';
 
-// Tailwind CSS
-import '../../../styles/global.css'
-
-// Layout import
-import MainLayout from '../../../layouts/MainLayout.astro';
-
-// Components import
-import PostCard from '../../../components/PostCard.astro';
-
+const posts = [
+  {
+    title: 'The Essence of Art',
+    date: '2025-04-12',
+    topic: 'Art',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
 ---
 
-<MainLayout title="Art">
-    <section class="max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-6 text-left dark:text-white">Art</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <PostCard
-            title="The Beauty of Nature"
-            date="2025-05-01"
-            topic="Nature"
-            image="/post-covers/test.png"
-            link="/posts/art/the-beauty-of-nature"
-            />
-            <PostCard
-            title="The Logic of Nature"
-            date="2025-04-20"
-            topic="Nature"
-            image="/post-covers/test.png"
-            link="/posts/art/the-logic-of-nature"	
-            />
-        </div>
-    </section>
+
+
+<TopicsLayout
+  title="Art"
+  banner="/topic-covers/art-cover.png"
+  description="Art is a manifestation of human being that makes it possible access other facets of reality and seek for infinity."
+  posts={posts}
+  font="Monsieur La Doulaise"
+  fontSize="6rem"
+  fontWeight="500"
+  letterSpacing="0.05em"  
+/>
