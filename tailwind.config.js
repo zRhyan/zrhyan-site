@@ -20,4 +20,11 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
+  theme: {
+    extend: {
+      fontFamily: {
+        playfair: ['"Playfair Display"', 'serif'],
+      },
+    },
+  },
 };
