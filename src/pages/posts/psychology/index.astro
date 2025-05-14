@@ -4,9 +4,9 @@ import TopicsLayout from '../../../layouts/TopicsLayout.astro';
 
 const posts = [
   {
-    title: 'The Essence of Technology',
+    title: 'The Essence of Psychology',
     date: '2025-04-12',
-    topic: 'Technology',
+    topic: 'Psychology',
     image: '/post-covers/test.jpg',
     link: '/posts/philosophy/thought'
   },
@@ -15,13 +15,14 @@ const posts = [
 ---
 
 <TopicsLayout
-  title="Technology"
-  banner="/topic-covers/technology-cover-test.jpg"
-  bannerPosition="center 45%"
+  title="Psychology"
+  banner="/topic-covers/psychology-cover.png"
+  bannerPosition="center 35%"
   description="Manifestation of imagination that provides the extension of the human being."
   posts={posts}
-  font="Turret Road"
-  fontSize="4.8rem"
+  font="Babylonica"
+  fontFamilyStyle="cursive"
+  fontSize="6rem"
   fontWeight="0"
   letterSpacing="0.05em"
 />
