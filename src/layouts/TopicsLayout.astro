@@ -43,8 +43,7 @@ const { title, banner, description, posts, font, fontFamilyStyle, fontSize, font
         >
           {title}
         </h1>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          {description}
+        <p class="text-sm text-gray-600 dark:text-gray-400" set:html={description}>
         </p>
       </section>
 

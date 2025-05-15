@@ -74,9 +74,10 @@ html.dark .animated-border {
   background: conic-gradient(
     from var(--angle),
     var(--color-secondary) 45deg,
-    var(--fill) 135deg,
-    var(--color-primary) 225deg,
-    var(--fill) 315deg,
+    var(--fill)            135deg,
+    var(--color-primary)   225deg,
+    var(--fill)            315deg,
+    var(--color-secondary) 360deg, /* NEW stop → lets red fade in */
     var(--color-secondary) 405deg
   ) border-box;
   opacity: 1;
