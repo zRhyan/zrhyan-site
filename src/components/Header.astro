@@ -83,12 +83,62 @@
     </div>
   </div>
   <!-- Mobile menu -->
-  <nav
-    id="mobile-menu"
-    class="hidden flex-col gap-4 bg-white px-4 py-6 text-black transition-colors duration-300 dark:bg-black dark:text-white md:hidden"
-  >
-    <a href="/"     class="hover:text-secondary">Home</a>
-    <a href="/posts" class="hover:text-secondary">Posts</a>
-    <a href="/about" class="hover:text-secondary">About Me</a>
-  </nav>
+<nav
+  id="mobile-menu"
+  class="hidden flex-col gap-4 bg-white px-4 py-6 text-black dark:bg-black dark:text-white md:hidden"
+>
+  <a href="/" class="hover:text-secondary">Home</a>
+  <a href="/posts" class="hover:text-secondary">Posts</a>
+  <a href="/about" class="hover:text-secondary">About Me</a>
+
+  <!-- Social icons (stacked) -->
+  <div class="flex items-center justify-start gap-4 mt-4">
+    <a href="https://x.com/zzzRhYaN" aria-label="X" target="_blank">
+      <img src="/logo-x-black.png" class="block h-5 w-5 dark:hidden" />
+      <img src="/logo-x-white.svg" class="hidden h-5 w-5 dark:block" />
+    </a>
+    <a href="https://github.com/zRhyan" aria-label="GitHub" target="_blank">
+      <img src="/logo-github-black.svg" class="block h-5 w-5 dark:hidden" />
+      <img src="/logo-github-white.svg" class="hidden h-5 w-5 dark:block" />
+    </a>
+    <a href="https://www.linkedin.com/in/zrhyan/" aria-label="LinkedIn" target="_blank">
+      <img src="/logo-In-black.png" class="block h-5 w-5 dark:hidden" />
+      <img src="/logo-In-white.png" class="hidden h-5 w-5 dark:block" />
+    </a>
+    <a href="https://www.youtube.com/@0rhyan" aria-label="YouTube" target="_blank">
+      <img src="/logo-yt-black.svg" class="block h-5 w-5 dark:hidden" />
+      <img src="/logo-yt-white.svg" class="hidden h-5 w-5 dark:block" />
+    </a>
+  </div>
+</nav>
+
+<script>
+  // Smooth hamburger menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (!button || !mobileMenu) return;
+
+    button.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      button.setAttribute(
+        'aria-expanded',
+        mobileMenu.classList.contains('hidden') ? 'false' : 'true'
+      );
+    });
+
+    // Optional: close menu when clicking outside (mobile UX polish)
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !button.contains(e.target)) {
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+</script>
+
+
 </header>
