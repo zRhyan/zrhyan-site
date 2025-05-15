@@ -36,10 +36,14 @@ const { title, banner, description, posts, font, fontFamilyStyle, fontSize, font
     <!-- Topic header content -->
     <main class="mx-auto max-w-6xl px-4 py-10">
       <section class="max-w-4xl mx-auto text-center mb-12">
-        <h1 class="text-black dark:text-white mb-4" style={`font-family: '${font}', ${fontFamilyStyle}; font-size: ${fontSize}; font-weight: ${fontWeight}; letter-spacing: ${letterSpacing};`}>
+        <h1 
+          id="dynamic-title"
+          class="text-black dark:text-white mb-4 break-words"
+          style={`font-family: '${font}', ${fontFamilyStyle}; font-size: ${fontSize}; font-weight: ${fontWeight}; letter-spacing: ${letterSpacing}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;`}
+        >
           {title}
         </h1>
-        <p class="text-2x1 text-gray-600 dark:text-gray-400">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
           {description}
         </p>
       </section>
@@ -73,3 +77,22 @@ const { title, banner, description, posts, font, fontFamilyStyle, fontSize, font
     </footer>
   </body>
 </html>
+
+<script>
+  const adjustFontSize = () => {
+    const title = document.getElementById('dynamic-title');
+    const containerWidth = title.parentElement.offsetWidth;
+
+    let fontSize = parseFloat(getComputedStyle(title).fontSize);
+
+    // Reduce font size until the title fits within the container
+    while (title.scrollWidth > containerWidth && fontSize > 10) {
+      fontSize -= 1; // Decrease font size
+      title.style.fontSize = `${fontSize}px`;
+    }
+  };
+
+  // Adjust font size on load and resize
+  window.addEventListener('load', adjustFontSize);
+  window.addEventListener('resize', adjustFontSize);
+</script>
