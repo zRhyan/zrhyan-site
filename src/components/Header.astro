@@ -1,71 +1,33 @@
 ---
 // src/components/Header.astro
+import '../styles/global.css'
 ---
-<header class="border-b-2 gradient-border bg-white py-4 text-black transition-colors duration-300 dark:bg-black dark:text-white">
-  <!-- CONTAINER -->
-  <!-- Tailwind classes used in <div> below.
-  max-w-6xl =
-  max-width: 72rem;
-  mx-auto =
-  margin-left: auto;
-  margin-right: auto;
-  flex =
-  display: flex;
-  justify-between =
-  justify-content: space-between;
-  -->
+<header class="relative z-20 border-b-2 gradient-border bg-white py-4 text-black transition-colors duration-300 dark:bg-black dark:text-white">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4">
     <!-- Logo -->
     <a href="/">
-      <img
-        src="/logos/logo.png"
-        alt="Rhyan's logo"
-        class="h-10 block dark:hidden"
-        width="160"
-        height="40"
-      />
-      <img
-        src="/logos/logo-black.png"
-        alt="Rhyan's logo"
-        class="hidden h-10 dark:block"
-        width="160"
-        height="40"
-      />
+      <img src="/logos/logo.png" alt="Rhyan's logo" class="h-10 block dark:hidden" width="160" height="40" />
+      <img src="/logos/logo-black.png" alt="Rhyan's logo" class="hidden h-10 dark:block" width="160" height="40" />
     </a>
     <!-- Hamburger -->
-    <button
-      id="hamburger"
-      class="ml-auto h-8 w-8 md:hidden"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        class="h-full w-full fill-black dark:fill-white"
-      >
-        <path
-          d="M4 6h16M4 12h16M4 18h16"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-width="2"
-        />
+    <button id="hamburger" class="ml-auto h-8 w-8 md:hidden" aria-label="Open menu" aria-expanded="false">
+      <svg class="hamburger-icon h-full w-full fill-black dark:fill-white" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+      </svg>
+      <svg class="close-icon hidden h-full w-full fill-black dark:fill-white" viewBox="0 0 24 24">
+        <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
       </svg>
     </button>
     <!-- Desktop nav -->
-    <nav
-      id="desktop-nav"
-      class="hidden items-center gap-6 md:flex md:flex-grow md:justify-center"
-    >
-      <a href="/"     class="hover:text-secondary">Home</a>
+    <nav id="desktop-nav" class="hidden items-center gap-6 md:flex md:flex-grow md:justify-center">
+      <a href="/" class="hover:text-secondary">Home</a>
       <a href="/posts" class="hover:text-secondary">Posts</a>
       <a href="/about" class="hover:text-secondary">About Me</a>
     </nav>
-    <!-- Social Icons -->
+    <!-- Social Icons (Desktop) -->
     <div class="hidden items-center gap-4 md:flex z-10">
       <a href="https://x.com/zzzRhYaN" aria-label="X" target="_blank">
-        <!-- light mode: black icon; dark mode: hidden -->
         <img src="/logo-x-black.png" class="block h-5 w-5 dark:hidden" />
-        <!-- light mode: hidden; dark mode: white icon -->
         <img src="/logo-x-white.svg" class="hidden h-5 w-5 dark:block" />
       </a>
       <a href="https://github.com/zRhyan" aria-label="GitHub" target="_blank">
@@ -83,62 +45,59 @@
     </div>
   </div>
   <!-- Mobile menu -->
-<nav
-  id="mobile-menu"
-  class="hidden flex-col gap-4 bg-white px-4 py-6 text-black dark:bg-black dark:text-white md:hidden"
->
-  <a href="/" class="hover:text-secondary">Home</a>
-  <a href="/posts" class="hover:text-secondary">Posts</a>
-  <a href="/about" class="hover:text-secondary">About Me</a>
-
-  <!-- Social icons (stacked) -->
-  <div class="flex items-center justify-start gap-4 mt-4">
-    <a href="https://x.com/zzzRhYaN" aria-label="X" target="_blank">
-      <img src="/logo-x-black.png" class="block h-5 w-5 dark:hidden" />
-      <img src="/logo-x-white.svg" class="hidden h-5 w-5 dark:block" />
-    </a>
-    <a href="https://github.com/zRhyan" aria-label="GitHub" target="_blank">
-      <img src="/logo-github-black.svg" class="block h-5 w-5 dark:hidden" />
-      <img src="/logo-github-white.svg" class="hidden h-5 w-5 dark:block" />
-    </a>
-    <a href="https://www.linkedin.com/in/zrhyan/" aria-label="LinkedIn" target="_blank">
-      <img src="/logo-In-black.png" class="block h-5 w-5 dark:hidden" />
-      <img src="/logo-In-white.png" class="hidden h-5 w-5 dark:block" />
-    </a>
-    <a href="https://www.youtube.com/@0rhyan" aria-label="YouTube" target="_blank">
-      <img src="/logo-yt-black.svg" class="block h-5 w-5 dark:hidden" />
-      <img src="/logo-yt-white.svg" class="hidden h-5 w-5 dark:block" />
-    </a>
+  <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-black z-10 hidden flex flex-col">
+    <!-- X Close Button -->
+    <button id="close-mobile-menu" class="absolute top-4 right-4 h-10 w-8 md:hidden" aria-label="Close menu">
+      <svg class="h-full w-full fill-black dark:fill-white" viewBox="0 0 24 24">
+        <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+      </svg>
+    </button>
+    <div class="flex-grow flex items-center justify-center">
+      <div class="relative text-center w-full">
+        <nav class="flex flex-col gap-4 mt-8">
+          <a href="/" class="text-xl hover:text-secondary">Home</a>
+          <a href="/posts" class="text-xl hover:text-secondary">Posts</a>
+          <a href="/about" class="text-xl hover:text-secondary">About Me</a>
+        </nav>
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="https://x.com/zzzRhYaN" aria-label="X" target="_blank">
+            <img src="/logo-x-black.png" class="block h-5 w-5 dark:hidden" />
+            <img src="/logo-x-white.svg" class="hidden h-5 w-5 dark:block" />
+          </a>
+          <a href="https://github.com/zRhyan" aria-label="GitHub" target="_blank">
+            <img src="/logo-github-black.svg" class="block h-5 w-5 dark:hidden" />
+            <img src="/logo-github-white.svg" class="hidden h-5 w-5 dark:block" />
+          </a>
+          <a href="https://www.linkedin.com/in/zrhyan/" aria-label="LinkedIn" target="_blank">
+            <img src="/logo-In-black.png" class="block h-5 w-5 dark:hidden" />
+            <img src="/logo-In-white.png" class="hidden h-5 w-5 dark:block" />
+          </a>
+          <a href="https://www.youtube.com/@0rhyan" aria-label="YouTube" target="_blank">
+            <img src="/logo-yt-black.svg" class="block h-5 w-5 dark:hidden" />
+            <img src="/logo-yt-white.svg" class="hidden h-5 w-5 dark:block" />
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
-
+</header>
 <script>
-  // Smooth hamburger menu toggle
-  document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (!button || !mobileMenu) return;
-
-    button.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      button.setAttribute(
-        'aria-expanded',
-        mobileMenu.classList.contains('hidden') ? 'false' : 'true'
-      );
-    });
-
-    // Optional: close menu when clicking outside (mobile UX polish)
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && !button.contains(e.target)) {
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          button.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-mobile-menu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    hamburger.querySelector('.hamburger-icon').classList.toggle('hidden');
+    hamburger.querySelector('.close-icon').classList.toggle('hidden');
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  closeBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    hamburger.querySelector('.hamburger-icon').classList.remove('hidden');
+    hamburger.querySelector('.close-icon').classList.add('hidden');
+    hamburger.setAttribute('aria-expanded', false);
+    hamburger.setAttribute('aria-label', 'Open menu');
   });
 </script>
-
-
-</header>
