@@ -6,9 +6,13 @@ import '../styles/global.css'
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4">
     <!-- Logo -->
     <a href="/">
-      <img src="/logos/logo.png" alt="Rhyan's logo" class="h-10 block dark:hidden" width="160" height="40" />
-      <img src="/logos/logo-black.png" alt="Rhyan's logo" class="hidden h-10 dark:block" width="160" height="40" />
+      <p id="home"class="text-3xl">R</p>
     </a>
+    <style>
+      #home {
+        font-family: "Cinzel Decorative", serif;
+      }
+    </style>
     <!-- Hamburger -->
     <button id="hamburger" class="ml-auto h-8 w-8 md:hidden" aria-label="Open menu" aria-expanded="false">
       <svg class="hamburger-icon h-full w-full fill-black dark:fill-white" viewBox="0 0 24 24">
