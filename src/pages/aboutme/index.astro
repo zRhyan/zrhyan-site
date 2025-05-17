@@ -1,91 +1,180 @@
 ---
-// src/pages/aboutme.astro
-
-import '../../styles/global.css';
-import MainLayout from '../../layouts/MainLayout.astro';
+// src/pages/aboutme/index.astro
+import "../../styles/global.css";
+import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="About Me">
-  <section class="max-w-6xl mx-auto px-4 py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
-    <!-- LEFT: Title and Text -->
-    <div>
-      <h1 class="text-5xl font-semibold text-black dark:text-white mb-6 tracking-tight font-serif">
+  <section
+    class="max-w-6xl mx-auto px-4 py-20 grid grid-cols-1 md:grid-cols-2 gap-12"
+  >
+    <!-- LEFT COLUMN -->
+    <div class="flex flex-col justify-start">
+      <!-- Title -->
+      <h1
+        class="text-5xl font-semibold tracking-tight font-serif mb-6 text-black dark:text-white"
+      >
         Who am I
       </h1>
-      <p class="text-lg pb-8 text-gray-700 dark:text-gray-300 leading-relaxed">
-        I am incessantly curious, guided by mystery and beauty. Fascinated by the Renaissance man concept, I constantly aspire toward becoming one. As an idealist, I seek Aret and wish to make the Universe a more fun place for all beings. I want to adventure in the most interesting way for me in this game.
 
+      <!-- Intro -->
+      <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+        I am incessantly curious, guided by <span class="font-semibold">mystery</span>
+        and <span class="font-semibold">beauty</span>.  Fascinated by the
+        <span class="italic underline">Renaissance&nbsp;man</span> ideal, I strive to embody
+        it. As an idealist, I seek Arete and wish to make the Universe a more fun place for all beings. I want to adventure in the most interesting way for me in this game.
       </p>
-      <div class="mt-6 space-y-4 text-sm text-gray-600 dark:text-gray-400">
-        <div>
-          <span class="font-semibold text-primary">Technologies I use:</span> HTML, CSS, JavaScript, Astro, Tailwind CSS, Python, VPS, Linux, AI integrations, PostgreSQL.
-        </div>
-        <div>
-          <span class="font-semibold text-primary">My Zones of Genius (possibly, it's too soon to have much confidence):</span>
-          <ul class="list-disc ml-8 space-y-1">
-            <li>Deep Research</li>
-            <li>Nexalism</li>
-            <li>Strategic/Systematic Thinking</li>
-            <li>Metatheory</li>
-            <li>Beauty + Intellectual</li>
-          </ul>
-        </div>
-        <div>
-          <span class="font-semibold text-primary">My top 12 personal values (not in order):</span> 
-            <ul class="list-disc ml-8 space-y-1">
-              <li>Intelligence</li>
-              <li>Knowledge</li>
-              <li>Beauty</li>
-              <li>Criticality</li>
-              <li>Fun</li>
-              <li>Deep Connections
-                <ul class="list-disc ml-5">
-                  <li>Living beings and Ideas</li>
-                </ul>
-              </li>
-              <li>Authenticity</li>
-              <li>Idealism</li>
-              <li>Evolution
-                <ul class="list-disc ml-5">
-                  <li>Arete</li>
-                  <li>Antifragility</li>
-                  <li>Life</li>
-                </ul>
-              </li>
-              <li>Honor
-                <ul class="list-disc ml-5">
-                  <li>Loyalty/Commitment for what is meaningful to me</li>
-                  <li>Coherence / Integrity</li> 
-                </ul>  
-              </li>
-              <li>The Good</li>
-              <li>Legacy</li>  
-            </ul>
-        </div>
-        <div>
-          <span class="font-semibold text-primary">Things I love:</span> Chamomile tea in a pretty cup.
-        </div>
-        <div>
-          <span class="font-semibold text-primary">Things I avoid:</span> Beans under the rice.
-        </div>
-        <!-- Quotes
-        <div>
-          <span class="font-semibold text-primary">Gotta:</span>
-          <ul class="list-disc ml-6 mt-1 space-y-1 italic">
-            <li>"The universe is relation."</li>
-            <li>"Knowledge becomes meaningful through its impact."</li>
-            <li>"Beauty isn't mere decoration—it's foundational structure."</li>
-            <li>"Live deliberately; embody Areté."</li>
-          </ul>
-        </div> 
+
+      <!-- Technologies -->
+      <h2 class="mt-10 mb-4 text-2xl font-semibold text-primary">Tech Stack</h2>
+      <ul
+        class="grid grid-cols-4 sm:grid-cols-6 gap-4"
+        aria-label="Technologies I use"
+      >
+        <!-- single icon card -->
+        <!-- Hover: soft zoom, subtle shadow -->
+        <li
+          class="group relative rounded-lg p-3  bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg"
+        >
+          <img src="/about-me/tech-stack/html.svg" alt="HTML" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            HTML
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/css.svg" alt="CSS" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            CSS
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/javascript.svg" alt="JavaScript" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            JavaScript
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/astro.svg" alt="Astro" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Astro
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/tailwind-css.svg" alt="Tailwind CSS" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Tailwind CSS
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/python.svg" alt="Python" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Python
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/linux.svg" alt="Linux" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Linux
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/postgresql.svg" alt="PostgreSQL" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            PostgreSQL
+          </span>
+        </li>
+        <!-- !!FINISH AFTER!!
+        <li class="group rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/icons/openai.svg" alt="AI" class="w-8 h-8" />
+        </li>
+        <li class="group rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/icons/vps.svg" alt="VPS" class="w-8 h-8" />
+        </li>
         -->
-        
-      </div>
+      </ul>
+
+      <!-- Zones of Genius -->
+      <h2 class="mt-12 mb-3 text-2xl font-semibold text-primary">Zones of Genius</h2>
+      <ul class="list-disc ml-6 space-y-1 text-gray-700 dark:text-gray-300">
+        <li>Deep Research</li>
+        <li>Nexalism</li>
+        <li>Strategic / Systemic Thinking</li>
+        <li>Metatheory</li>
+        <li>Beauty + Intellect</li>
+      </ul>
+
+      <!-- Personal Values -->
+      <h2 class="mt-12 mb-3 text-2xl font-semibold text-primary">Top 12 Core Values</h2>
+      <ul
+        class="columns-2 sm:columns-2 gap-x-6 list-disc ml-6 text-gray-700 dark:text-gray-300 space-y-1"
+      >
+        <li>Intelligence</li>
+        <li>Knowledge</li>
+        <li>Beauty</li>
+        <li>Criticality</li>
+        <li>Fun</li>
+        <li>Deep Connections
+          <ul class="list-none ml-5 italic">
+            <li>Living beings and Ideas</li>
+          </ul>
+        </li>
+        <li>Authenticity</li>
+        <li>Idealism</li>
+       <li>Evolution
+          <ul class="list-none ml-5 italic">
+            <li>Arete</li>
+            <li>Antifragility</li>
+            <li>Life</li>
+          </ul>
+        </li>
+        <li>Honor
+          <ul class="list-none ml-5 italic">
+            <li>Loyalty/Commitment for what is meaningful to me</li>
+            <li>Coherence / Integrity</li> 
+          </ul>  
+        </li>
+        <li>The Good</li>
+        <li>Legacy</li>
+      </ul>
+
+      <!-- Fun facts -->
+      <h2 class="mt-12 mb-3 text-2xl font-semibold text-primary">Quirks</h2>
+      <p class="text-gray-700 dark:text-gray-300">
+        <span class="font-semibold">Love:</span> chamomile tea in a pretty cup.<br />
+        <span class="font-semibold">Avoid:</span> beans under the rice.
+      </p>
     </div>
 
-    <!-- RIGHT: Profile image -->
-    <div class="flex justify-center">
-      <img src="/about-me/cat.png" alt="Rhyan's Portrait" class="rounded-xl shadow-lg max-h-[500px] object-cover" />
+    <!-- RIGHT COLUMN -->
+    <div class="flex flex-col items-center md:items-end">
+      <!-- Portrait -->
+      <img
+        src="/about-me/cat.png"
+        alt="Rhyan portrait"
+        class="rounded-2xl shadow-xl w-full max-w-sm object-cover transform transition-transform duration-500 hover:scale-105"
+      />
+
+      <!-- Extra content under the image -->
+      <div
+        class="mt-10 w-full md:max-w-sm bg-white/50 dark:bg-black/50 backdrop-blur-sm p-6 rounded-xl shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-black dark:text-white mb-2">
+          Quick Stats
+        </h3>
+        <ul class="space-y-1 text-gray-700 dark:text-gray-300 text-sm">
+          <li><span class="font-semibold">Name:</span> Rhyan</li>
+          <li><span class="font-semibold">Year of Birth:</span> 2004</li>
+          <li><span class="font-semibold">Based in:</span> Brazil</li>
+          <li><span class="font-semibold">Currently studying:</span> B.S. in Information Systems @ UFU</li>
+        </ul>
+      </div>
     </div>
   </section>
 </MainLayout>
+
+<style is:global>
+  /* Primary accent (already on your palette) */
+  .text-primary {
+    @apply text-[var(--color-primary)];
+  }
+</style>
