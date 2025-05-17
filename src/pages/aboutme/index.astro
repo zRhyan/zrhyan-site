@@ -1,0 +1,55 @@
+---
+// src/pages/aboutme.astro
+
+import '../../styles/global.css';
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="About Me">
+  <section class="max-w-6xl mx-auto px-4 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- LEFT: Title and Text -->
+    <div>
+      <h1 class="text-5xl font-semibold text-black dark:text-white mb-6 tracking-tight font-serif">
+        Who am I
+      </h1>
+      <p class="text-lg pb-8 text-gray-700 dark:text-gray-300 leading-relaxed">
+        I am incessantly curious, guided by mystery and beauty. Fascinated by the Renaissance man concept, I constantly aspire toward becoming one. As an idealist, I seek Areté and wish to make the Universe a more fun place for all beings. I want to adventure in the most interesting way for me in this game.
+
+      </p>
+      <div class="mt-6 space-y-4 text-sm text-gray-600 dark:text-gray-400">
+        <div>
+          <span class="font-semibold text-primary">Technologies I use:</span> HTML, CSS, JavaScript, Astro, Tailwind CSS, Python, VPS, Linux, AI integrations, PostgreSQL.
+        </div>
+        <div>
+          <span class="font-semibold text-primary">My Zones of Genius (possibly, it's too soon to have much confidence):</span> Deep Research, Nexalism, Strategic Thinking, Metatheory and Beauty + Intellectual.
+        </div>
+        <div>
+          <span class="font-semibold text-primary">My top 10 values (not in order):</span> Intelligence, Knowledge, Beauty, Freedom, Loyalty, Criticality, Idealism, Evolution, Commitment and The Good.
+        </div>
+        <div>
+          <span class="font-semibold text-primary">Things I love:</span> Chamomile tea in a pretty cup.
+        </div>
+        <div>
+          <span class="font-semibold text-primary">Things I avoid:</span> Beans under the rice.
+        </div>
+        <!-- Quotes
+        <div>
+          <span class="font-semibold text-primary">Gotta:</span>
+          <ul class="list-disc ml-6 mt-1 space-y-1 italic">
+            <li>"The universe is relation."</li>
+            <li>"Knowledge becomes meaningful through its impact."</li>
+            <li>"Beauty isn't mere decoration—it's foundational structure."</li>
+            <li>"Live deliberately; embody Areté."</li>
+          </ul>
+        </div> 
+        -->
+        
+      </div>
+    </div>
+
+    <!-- RIGHT: Profile image -->
+    <div class="flex justify-center">
+      <img src="public/about-me/_.jpeg" alt="Rhyan's Portrait" class="rounded-xl shadow-lg max-h-[500px] object-cover" />
+    </div>
+  </section>
+</MainLayout>
