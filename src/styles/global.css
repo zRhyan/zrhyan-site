@@ -86,7 +86,6 @@ html.dark .skeleton {
 
 /* -----------------------------------------------------------
    PostCard border-animation support
-   (Place these anywhere after the @theme block)
 ----------------------------------------------------------- */
 
 /*  A.  Re-declare the same custom property globally
