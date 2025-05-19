@@ -9,7 +9,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
     <h1 class="text-5xl md:text-6 font-bold text-center solid-text">
     Projects
     </h1>
-    <p class="text-center font-light mb-30">See some of my works.</p>
+    <p class="text-center font-light mb-26">See some of my works.</p>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
       <!-- Project 1: AutoContingência -->
@@ -215,6 +215,32 @@ import MainLayout from '../../layouts/MainLayout.astro';
         </div>
       </div>
     </div>
+
+    <!-- Freelance platforms section -->
+    <div class="max-w border-y border-gray-200 dark:border-gray-800 mt-25 px-4 text-left">
+      <p class="text-base md:text-base font-light text-black dark:text-white my-6">
+        You also can see my profile on the freelance platforms where I work to check my reviews:
+      </p>
+      <div class="flex flex-wrap items-center justify-start gap-6 pb-8">
+        <!-- 99Freelas -->
+        <a href="https://www.99freelas.com.br/user/zRhYaN" target="_blank"
+          aria-label="Visit my 99Freelas profile"
+          class="group relative flex items-center justify-center transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <img src="/project-covers/99freelas.jpeg" alt="99Freelas"
+              class="h-8 md:h-10 dark:brightness-90 rounded-md shadow-sm group-hover:ring-2 group-hover:ring-[var(--color-primary)] transition-all" />
+        </a>
+
+        <!-- Workana -->
+        <a href="https://www.workana.com/freelancer/your-profile" target="_blank"
+          aria-label="Visit my Workana profile"
+          class="group relative flex items-center justify-center transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <img src="/project-covers/workana.png" alt="Workana"
+              class="h-8 md:h-10 dark:brightness-90 rounded-md shadow-sm group-hover:ring-2 group-hover:ring-[var(--color-primary)] transition-all" />
+        </a>
+      </div>
+    </div>
+
+
   </div>
 </MainLayout>
 
