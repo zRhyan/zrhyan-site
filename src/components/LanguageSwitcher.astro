@@ -7,12 +7,16 @@ const currentLang = pathname.startsWith('/pt') ? 'pt' : 'en';
 const alternateUrl = currentLang === 'pt' 
   ? pathname.replace(/^\/pt/, '/en') 
   : pathname.replace(/^\/en/, '/pt');
+
+// The target language is the opposite of the current language
+const targetLang = currentLang === 'pt' ? 'en' : 'pt';
 ---
 
 <div class="language-switcher">
   <a
     href={alternateUrl}
     class="px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+    onclick={`localStorage.setItem('preferred-language', '${targetLang}')`}
   >
     {currentLang === 'en' ? 'PT' : 'EN'}
   </a>
@@ -25,3 +29,18 @@ const alternateUrl = currentLang === 'pt'
     margin-left: 1rem;
   }
 </style>
+
+<script>
+  // Atualiza a preferência de idioma quando o usuário muda manualmente
+  document.addEventListener('DOMContentLoaded', () => {
+    const langSwitcher = document.querySelector('.language-switcher a');
+    if (langSwitcher) {
+      langSwitcher.addEventListener('click', () => {
+        const currentPath = window.location.pathname;
+        const currentLang = currentPath.startsWith('/pt') ? 'pt' : 'en';
+        const newLang = currentLang === 'pt' ? 'en' : 'pt';
+        localStorage.setItem('preferred-language', newLang);
+      });
+    }
+  });
+</script>

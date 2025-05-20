@@ -1,0 +1,47 @@
+---
+// src/pages/index.astro
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Redirecting...</title>
+</head>
+<body>
+  <script>
+    // Função para obter o idioma preferido do navegador
+    function getBrowserLanguage() {
+      return navigator.language.split('-')[0];
+    }
+
+    // Função para redirecionar
+    function redirect() {
+      // Verifica se há uma preferência salva
+      const savedLang = localStorage.getItem('preferred-language');
+      
+      if (savedLang) {
+        // Se houver preferência salva, use-a
+        window.location.href = `/${savedLang}/`;
+      } else {
+        // Se não houver preferência salva:
+        // 1. Verifica o idioma do navegador
+        const browserLang = getBrowserLanguage();
+        // 2. Se for português, redireciona para pt, caso contrário para en
+        const targetLang = browserLang === 'pt' ? 'pt' : 'en';
+        // 3. Salva a preferência
+        localStorage.setItem('preferred-language', targetLang);
+        // 4. Redireciona
+        window.location.href = `/${targetLang}/`;
+      }
+    }
+
+    // Executa o redirecionamento
+    redirect();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=/en/" />
+  </noscript>
+</body>
+</html>
