@@ -1,5 +1,27 @@
 ---
-// src/components/LanguageSwitcher.astro
+// Get the current URL path to determine which language is active
+const pathname = new URL(Astro.request.url).pathname;
+const currentLang = pathname.startsWith('/pt') ? 'pt' : 'en';
 
-
+// Create the alternate URL by replacing the language prefix
+const alternateUrl = currentLang === 'pt' 
+  ? pathname.replace(/^\/pt/, '/en') 
+  : pathname.replace(/^\/en/, '/pt');
 ---
+
+<div class="language-switcher">
+  <a
+    href={alternateUrl}
+    class="px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+  >
+    {currentLang === 'en' ? 'PT' : 'EN'}
+  </a>
+</div>
+
+<style>
+  .language-switcher {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+</style>

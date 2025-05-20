@@ -1,0 +1,27 @@
+---
+// src/pages/posts/philosophy/index.astro
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
+
+const posts = [
+  {
+    title: 'The Essence of Technology',
+    date: '2025-04-12',
+    topic: 'Technology',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
+---
+
+<TopicsLayout
+  title="Technology"
+  banner="/topic-covers/technology-cover-test.jpg"
+  bannerPosition="center 45%"
+  description="Manifestation of imagination that provides the extension of the human being."
+  posts={posts}
+  font="Turret Road"
+  fontSize="5.5rem"
+  fontWeight="0"
+  letterSpacing="0.05em"
+/>

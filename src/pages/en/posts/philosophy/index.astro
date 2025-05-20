@@ -1,0 +1,28 @@
+---
+// src/pages/posts/philosophy/index.astro
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
+
+const posts = [
+  {
+    title: 'The Essence of Thought',
+    date: '2025-04-12',
+    topic: 'Philosophy',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
+---
+
+<TopicsLayout
+  title="Philosophy"
+  banner="/topic-covers/philosophy-cover.png"
+  bannerPosition="center 35%"
+  description={`The awareness of ignorance, the systematic doubt and the audacity to know.<br/>The love for knowledge.`}
+  posts={posts}
+  font="Aref Ruqaa"
+  fontFamilyStyle="serif"
+  fontSize="4.5rem"
+  fontWeight="700"
+  letterSpacing="0.08em"
+/>

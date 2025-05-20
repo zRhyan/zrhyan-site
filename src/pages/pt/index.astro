@@ -1,0 +1,100 @@
+---
+// src/pages/pt/index.astro
+import "../../styles/global.css";
+import MainLayout from "../../layouts/MainLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+---
+
+<MainLayout title="Página Inicial">
+	<!-- Seção hero com mensagem de boas-vindas e logo -->
+	<section class="max-w-6xl mx-auto py-5 px-0">
+			<div class="flex flex-col items-center justify-center text-center min-h-[400px]">
+				<div class="w-full md:w-1/2 ">
+					<!-- Animação de máquina de escrever para o texto de boas-vindas -->
+					<div class="typewriter mb-4 flex justify-center">
+						<h1 class="text-6xl font-serif font-bold text-primary">
+							Bem-vindo
+						</h1>
+					</div>
+					<p class="text-lg font-sans text-black dark:text-white mt-6">
+						Aqui você pode explorar meus últimos posts, descobrir alguns dos projetos que desenvolvi, encontrar formas de entrar em contato e ler um breve resumo sobre quem eu sou.
+					</p>
+				</div>
+			</div>
+			
+			<!-- Botões de navegação -->
+			<div class="flex flex-wrap justify-center gap-4 mt-2">
+				<a href="/pt/posts" class="bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:bg-secondary">
+					Leia Meus Posts
+				</a>
+				<a href="/pt/projects" class="bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:bg-secondary">
+					Veja Alguns dos Meus Trabalhos
+				</a>
+			</div>
+	</section>
+	
+	<!-- Seção de posts mais recentes -->
+	<section class="max-w-6xl mx-auto px-4 py-10">
+		<h2 class="text-2xl font-bold mb-6 text-left dark:text-white">Posts Recentes</h2>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+			<PostCard
+			title="Primeira Exploração"
+			date="2025-05-01"
+			topic="Filosofia"
+			image="https://cdn.mos.cms.futurecdn.net/LEkEkAKZQjXZkzadbHHsVj-480-80.jpg.webp"
+			link="/posts/first-exploration"
+			/>
+			<PostCard
+			title="A Lógica da Natureza"
+			date="2025-04-20"
+			topic="Ciência"
+			image="https://jd-doria.com/full/logic_of_nature/logic_of_nature_05.jpg"
+			link="/posts/logic-of-nature"	
+			/>
+			<PostCard
+			title="Estruturas Nexais"
+			date="2025-04-10"
+			topic="Teoria Pessoal"
+			image="/post-covers/test.png"
+			link="/posts/nexal-structures"
+			/>
+		</div>
+	</section>
+	
+	<!-- CSS da máquina de escrever -->
+	<style>
+		.typewriter h1 {
+			overflow: hidden;
+			border-right: 0.02em solid var(--cursor-color, rgb(255, 255, 255));
+			white-space: nowrap;
+			margin: 0;
+			letter-spacing: .05em;
+			width: fit-content;
+			animation:
+				typing 1s steps(9, end),
+				blink-caret 1s step-end infinite;
+		}
+
+		@keyframes typing {
+			from { width: 0; }
+			to { width: 9ch; }
+		}
+
+		@keyframes blink-caret {
+			from, to { border-color: transparent }
+			50% { border-color: var(--cursor-color, rgb(255, 255, 255)); }
+		}
+	</style>
+	
+	<script>
+		function updateCursorColor() {
+			const isDark = document.documentElement.classList.contains('dark');
+			const root = document.documentElement;
+			root.style.setProperty('--cursor-color', isDark ? 'white' : 'black');
+		}
+
+		document.addEventListener('DOMContentLoaded', updateCursorColor);
+		const observer = new MutationObserver(updateCursorColor);
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	</script>
+</MainLayout>

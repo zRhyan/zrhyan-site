@@ -1,6 +1,7 @@
 ---
 // src/components/Header.astro
 import '../styles/global.css'
+import LanguageSwitcher from './LanguageSwitcher.astro';
 ---
 <header class="relative z-20 border-b-2 gradient-border bg-white py-4 text-black transition-colors duration-300 dark:bg-black dark:text-white">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4">
@@ -24,14 +25,26 @@ import '../styles/global.css'
     </button>
     <!-- Desktop nav -->
     <nav id="desktop-nav" class="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
-      <a href="/" class="hover:text-secondary">Home</a>
-      <a href="/posts" class="hover:text-secondary">Posts</a>
-      <a href="/projects" class="hover:text-secondary">Projects</a>
-      <a href="/aboutme" class="hover:text-secondary">About Me</a>
+      {Astro.url.pathname.startsWith('/pt') ? (
+        <>
+          <a href="/pt" class="hover:text-secondary">Início</a>
+          <a href="/pt/posts" class="hover:text-secondary">Posts</a>
+          <a href="/pt/projects" class="hover:text-secondary">Projetos</a>
+          <a href="/pt/aboutme" class="hover:text-secondary">Sobre Mim</a>
+        </>
+      ) : (
+        <>
+          <a href="/en" class="hover:text-secondary">Home</a>
+          <a href="/en/posts" class="hover:text-secondary">Posts</a>
+          <a href="/en/projects" class="hover:text-secondary">Projects</a>
+          <a href="/en/aboutme" class="hover:text-secondary">About Me</a>
+        </>
+      )}
     </nav>
     
     <!-- Social Icons (Desktop) -->
     <div class="hidden items-center gap-4 md:flex z-10">
+      <LanguageSwitcher />
       <a href="https://x.com/zzzRhYaN" aria-label="X" target="_blank">
         <img src="/logo-x-black.png" class="block h-5 w-5 dark:hidden" />
         <img src="/logo-x-white.svg" class="hidden h-5 w-5 dark:block" />
@@ -61,10 +74,21 @@ import '../styles/global.css'
     <div class="flex-grow flex items-center justify-center">
       <div class="relative text-center w-full">
         <nav class="flex flex-col gap-4 mt-8">
-          <a href="/" class="text-xl hover:text-secondary">Home</a>
-          <a href="/posts" class="text-xl hover:text-secondary">Posts</a>
-          <a href="/projects" class="text-xl hover:text-secondary">Projects</a>
-          <a href="/aboutme" class="text-xl hover:text-secondary">About Me</a>
+          {Astro.url.pathname.startsWith('/pt') ? (
+            <>
+              <a href="/pt" class="text-xl hover:text-secondary">Início</a>
+              <a href="/pt/posts" class="text-xl hover:text-secondary">Posts</a>
+              <a href="/pt/projects" class="text-xl hover:text-secondary">Projetos</a>
+              <a href="/pt/aboutme" class="text-xl hover:text-secondary">Sobre Mim</a>
+            </>
+          ) : (
+            <>
+              <a href="/en" class="text-xl hover:text-secondary">Home</a>
+              <a href="/en/posts" class="text-xl hover:text-secondary">Posts</a>
+              <a href="/en/projects" class="text-xl hover:text-secondary">Projects</a>
+              <a href="/en/aboutme" class="text-xl hover:text-secondary">About Me</a>
+            </>
+          )}
         </nav>
         <div class="mt-8 flex justify-center gap-4">
           <a href="https://x.com/zzzRhYaN" aria-label="X" target="_blank">
@@ -92,19 +116,31 @@ import '../styles/global.css'
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   const closeBtn = document.getElementById('close-mobile-menu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    hamburger.querySelector('.hamburger-icon').classList.toggle('hidden');
-    hamburger.querySelector('.close-icon').classList.toggle('hidden');
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    hamburger.setAttribute('aria-expanded', isOpen);
-    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-  });
-  closeBtn.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    hamburger.querySelector('.hamburger-icon').classList.remove('hidden');
-    hamburger.querySelector('.close-icon').classList.add('hidden');
-    hamburger.setAttribute('aria-expanded', false);
-    hamburger.setAttribute('aria-label', 'Open menu');
-  });
+
+  if (hamburger && mobileMenu && closeBtn) {
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const hamburgerIcon = hamburger.querySelector('.hamburger-icon');
+      const closeIcon = hamburger.querySelector('.close-icon');
+      if (hamburgerIcon && closeIcon) {
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      }
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      const hamburgerIcon = hamburger.querySelector('.hamburger-icon');
+      const closeIcon = hamburger.querySelector('.close-icon');
+      if (hamburgerIcon && closeIcon) {
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+    });
+  }
 </script>

@@ -1,0 +1,27 @@
+---
+// src/pages/posts/philosophy/index.astro
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
+
+const posts = [
+  {
+    title: 'The Essence of Science',
+    date: '2025-04-12',
+    topic: 'Science',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
+---
+
+<TopicsLayout
+  title="Ciência"
+  banner="/topic-covers/science-cover.png"
+  bannerPosition="center 80%"
+  description="Embora frágil e minúscula, é a mais importante luz da humanidade enquanto caminhamos na escuridão."
+  posts={posts}
+  font="Ballet"
+  fontSize="6rem"
+  fontWeight="300"
+  letterSpacing="0.08em"
+/>

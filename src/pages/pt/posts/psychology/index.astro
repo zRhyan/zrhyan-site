@@ -1,0 +1,28 @@
+---
+// src/pages/posts/philosophy/index.astro
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
+
+const posts = [
+  {
+    title: 'The Essence of Psychology',
+    date: '2025-04-12',
+    topic: 'Psychology',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
+---
+
+<TopicsLayout
+  title="Psicologia"
+  banner="/topic-covers/psychology-cover.png"
+  bannerPosition="center 35%"
+  description="O processo estruturado da classe de objetos mais misteriosa conhecida explorar a si mesmo."
+  posts={posts}
+  font="Babylonica"
+  fontFamilyStyle="cursive"
+  fontSize="7.5rem"
+  fontWeight="0"
+  letterSpacing="0.05em"
+/>

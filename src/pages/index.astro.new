@@ -1,0 +1,10 @@
+---
+// Main page that redirects to language-specific versions
+const userLang = Astro.request.headers.get('accept-language')?.split(',')[0].split('-')[0] || 'en';
+const redirectTo = userLang === 'pt' ? '/pt/' : '/en/';
+---
+
+<meta http-equiv="refresh" content={`0;url=${redirectTo}`}>
+<script define:vars={{ redirectTo }}>
+  window.location.href = redirectTo;
+</script>

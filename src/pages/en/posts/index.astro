@@ -1,0 +1,82 @@
+---
+// src/pages/posts/index.astro
+
+import MainLayout from '../../../layouts/MainLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import '../../../styles/global.css';
+
+// Topics as post-like cards (no date needed)
+// !!Important, modify to add dynamic post number!!
+const topics = [
+  {
+    title: 'Philosophy',
+    topic: '0 posts',
+    image: '/topic-covers/philosophy-cover.png',
+    link: 'posts/philosophy',
+  },
+  {
+    title: 'Science',
+    topic: '0 posts',
+    image: '/topic-covers/science-cover.png',
+    link: 'posts/science',
+  },
+  {
+    title: 'Art',
+    topic: '0 posts',
+    image: '/topic-covers/art-cover.png',
+    link: 'posts/art',
+  },
+  {
+    title: 'Mathematics',
+    topic: '0 posts',
+    image: '/topic-covers/mathematics-cover.png',
+    link: 'posts/mathematics',
+  },
+  {
+    title: 'Technology',
+    topic: '0 posts',
+    image: '/topic-covers/technology-cover-test.jpg',
+    link: 'posts/technology',
+  },
+  {
+    title: 'Psychology',
+    topic: '0 posts',
+    image: '/topic-covers/psychology-cover.png',
+    link: 'posts/psychology',
+  },
+  {
+    title: 'Sociology',
+    topic: '0 posts',
+    image: '/topic-covers/sociology-cover.png',
+    link: 'posts/sociology',
+  },
+  {
+    title: 'History',
+    topic: '0 posts',
+    image: '/topic-covers/history-cover.png',
+    link: 'posts/history',
+  },
+];
+---
+<MainLayout title="Posts">
+  <section class="mb-12 text-center max-w-3xl mx-auto">
+    <h1 class="text-5xl font-bold mb-4 text-black dark:text-white">Topics</h1>
+    <p class="font-light text-black dark:text-white">
+      Exploring what interesting me in this Universe.
+    </p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {topics.map((topic) => (
+        <PostCard
+          title={topic.title}
+          date=""
+          topic={topic.topic}
+          image={topic.image}
+          link={topic.link}
+        />
+      ))}
+    </div>
+  </section>
+</MainLayout>

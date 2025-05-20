@@ -1,0 +1,208 @@
+---
+// src/pages/aboutme/index.astro
+import "../../styles/global.css";
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout title="About Me">
+  <section
+    class="max-w-6xl mx-auto px-4 py-20 grid grid-cols-1 md:grid-cols-2 gap-12"
+  >
+    <!-- LEFT COLUMN -->
+    <div class="flex flex-col justify-start">
+      <!-- Title -->
+      <h1
+        class="text-5xl font-semibold tracking-tight font-serif mb-6 text-black dark:text-white"
+      >
+        Who am I
+      </h1>
+
+      <!-- Intro -->
+      <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+        I am incessantly curious, guided by <span class="font-semibold">mystery</span>
+        and <span class="font-semibold">beauty</span>.  Fascinated by the
+        <span class="italic underline">Renaissance&nbsp;man</span> ideal, I strive to embody
+        it. As an idealist, I seek Arete and wish to make the Universe a more fun place for all beings. I want to adventure in the most interesting way for me in this game.
+      </p>
+
+      <!-- Technologies -->
+      <h2 class="mt-10 mb-4 text-2xl font-semibold text-primary">Tech Stack</h2>
+      <ul
+        class="grid grid-cols-4 sm:grid-cols-6 gap-4"
+        aria-label="Technologies I use"
+      >
+        <!-- single icon card -->
+        <!-- Hover: soft zoom, subtle shadow -->
+        <li
+          class="group relative rounded-lg p-3  bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg"
+        >
+          <img src="/about-me/tech-stack/html.svg" alt="HTML" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            HTML
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/css.svg" alt="CSS" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            CSS
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/javascript.svg" alt="JavaScript" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            JavaScript
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/astro.svg" alt="Astro" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Astro
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/tailwind-css.svg" alt="Tailwind CSS" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Tailwind CSS
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/python.svg" alt="Python" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Python
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/linux.svg" alt="Linux" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Linux
+          </span>
+        </li>
+        <li class="group relative rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/about-me/tech-stack/postgresql.svg" alt="PostgreSQL" class="w-8 h-8" />
+          <span class="absolute bottom-[-0.8rem] left-1/2 transform -translate-x-1/2 text-sm text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            PostgreSQL
+          </span>
+        </li>
+        <!-- !!FINISH AFTER!!
+        <li class="group rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/icons/openai.svg" alt="AI" class="w-8 h-8" />
+        </li>
+        <li class="group rounded-lg p-3 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <img src="/icons/vps.svg" alt="VPS" class="w-8 h-8" />
+        </li>
+        -->
+      </ul>
+
+      <!-- Zones of Genius -->
+      <h2 class="mt-12 mb-3 text-2xl font-semibold text-primary">Zones of Genius</h2>
+      <ul class="list-disc ml-6 space-y-1 text-gray-700 dark:text-gray-300">
+        <li>Deep Research</li>
+        <li>Nexialism</li>
+        <li>Strategic / Systemic Thinking</li>
+        <li>Metatheory</li>
+        <li>Beauty + Intellect</li>
+      </ul>
+
+      <!-- Personal Values -->
+      <h2 class="mt-12 mb-3 text-2xl font-semibold text-primary">Top 12 Core Values</h2>
+      <ul
+        class="columns-2 sm:columns-2 gap-x-6 list-disc ml-6 text-gray-700 dark:text-gray-300 space-y-1"
+      >
+        <li>Intelligence</li>
+        <li>Knowledge</li>
+        <li>Beauty</li>
+        <li>Criticality</li>
+        <li>Fun</li>
+        <li>Deep Connections
+          <ul class="list-none ml-5 italic">
+            <li>Living beings and Ideas</li>
+          </ul>
+        </li>
+        <li>Authenticity</li>
+        <li>Idealism</li>
+       <li>Evolution
+          <ul class="list-none ml-5 italic">
+            <li>Arete</li>
+            <li>Antifragility</li>
+            <li>Life</li>
+          </ul>
+        </li>
+        <li>Honor
+          <ul class="list-none ml-5 italic">
+            <li>Loyalty/Commitment for what is meaningful to me</li>
+            <li>Coherence / Integrity</li> 
+          </ul>  
+        </li>
+        <li>The Good</li>
+        <li>Legacy</li>
+      </ul>
+
+      <!-- Fun facts -->
+      <h2 class="mt-12 mb-3 text-2xl font-semibold text-primary">Quirks</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-15">
+        <span class="font-semibold">Love:</span> chamomile tea in a pretty cup.<br />
+        <span class="font-semibold">Avoid:</span> beans under the rice.
+      </p>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="flex flex-col items-center md:items-end">
+      <!-- Portrait -->
+      <div class="relative max-w-sm p-[1px] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-700 bg-gradient-to-br from-[var(--color-secondary)] via-[#1a1a1a] to-[var(--color-primary)]">
+      <img
+        src="/about-me/me-violin.jpg"
+        alt="Rhyan portrait"
+        class="rounded-2xl w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+      />
+      </div>
+    
+
+
+      <!-- Extra content under the image -->
+      <div
+        class="mt-2 w-full md:max-w-sm bg-white/50 dark:bg-black/50 backdrop-blur-sm p-6 rounded-xl shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-black dark:text-white mb-2">
+          Quick Stats
+        </h3>
+        <ul class="space-y-1 text-gray-700 dark:text-gray-300 text-sm">
+          <li><span class="font-semibold">Name:</span> Rhyan</li>
+          <li><span class="font-semibold">Year of Birth:</span> 2004</li>
+          <li><span class="font-semibold">Based in:</span> Brazil</li>
+          <li><span class="font-semibold">Currently studying:</span> B.S. in Information Systems @ UFU</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style is:global>
+  /* Primary accent (already on your palette) */
+  .text-primary {
+    @apply text-[var(--color-primary)];
+  }
+
+  .gradient-border-container {
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary) 0%,
+    #B91C1C 25%,
+    #000000 50%,
+    #15295F 75%,
+    var(--color-primary) 100%
+  );
+  border-radius: 1rem; /* matches Tailwind rounded-2xl */
+}
+
+html.dark .gradient-border-container {
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary) 0%,
+    #B91C1C 25%,
+    #ffffff0a 50%,
+    #15295F 75%,
+    var(--color-primary) 100%
+  );
+}
+
+</style>

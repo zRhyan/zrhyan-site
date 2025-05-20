@@ -1,0 +1,27 @@
+---
+// src/pages/posts/art/index.astro
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
+
+const posts = [
+  {
+    title: 'The Essence of Art',
+    date: '2025-04-12',
+    topic: 'Art',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
+---
+
+<TopicsLayout
+  title="Art"
+  banner="/topic-covers/art-cover.png"
+  description="Art is a manifestation of human being that makes it possible access other facets of reality and seek for infinity."
+  posts={posts}
+  font="Monsieur La Doulaise"
+  fontFamilyStyle="cursive"
+  fontSize="6rem"
+  fontWeight="0"
+  letterSpacing="0.05em"  
+/>

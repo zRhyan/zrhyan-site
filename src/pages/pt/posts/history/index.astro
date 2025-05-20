@@ -1,12 +1,12 @@
 ---
 // src/pages/posts/philosophy/index.astro
-import TopicsLayout from '../../../layouts/TopicsLayout.astro';
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
 
 const posts = [
   {
-    title: 'The Essence of History',
+    title: 'A Essência da História',
     date: '2025-04-12',
-    topic: 'History',
+    topic: 'História',
     image: '/post-covers/test.jpg',
     link: '/posts/philosophy/thought'
   },
@@ -15,10 +15,10 @@ const posts = [
 ---
 
 <TopicsLayout
-  title="History"
+  title="História"
   banner="/topic-covers/history-cover.png"
   bannerPosition="center 40%"
-  description="The study of the traces of human existence that have hardened over time and created a sense of collective narrative."
+  description="O estudo dos rastros da existência humana que perduraram no tempo e criaram um senso de narrativa coletiva."
   posts={posts}
   font="UnifrakturMaguntia"
   fontFamilyStyle="cursive"

@@ -1,0 +1,27 @@
+---
+// src/pages/posts/philosophy/index.astro
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
+
+const posts = [
+  {
+    title: 'The Essence of Mathematics',
+    date: '2025-04-12',
+    topic: 'Mathematics',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
+---
+
+<TopicsLayout
+  title="Mathematics"
+  banner="/topic-covers/mathematics-cover.png"
+  bannerPosition="center 35%"
+  description="The most reliable and powerful metaphysics we have access to."
+  posts={posts}
+  font="Cinzel Decorative"
+  fontSize="5rem"
+  fontWeight="0"
+  letterSpacing="0.05em"
+/>

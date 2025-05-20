@@ -1,0 +1,28 @@
+---
+// src/pages/posts/philosophy/index.astro
+import TopicsLayout from '../../../../layouts/TopicsLayout.astro';
+
+const posts = [
+  {
+    title: 'The Essence of Sociology',
+    date: '2025-04-12',
+    topic: 'Sociology',
+    image: '/post-covers/test.jpg',
+    link: '/posts/philosophy/thought'
+  },
+  // more posts...
+];
+---
+
+<TopicsLayout
+  title="Sociology"
+  banner="/topic-covers/sociology-cover.png"
+  bannerPosition="center 65%"
+  description="The critical unveiling of the imaginary frameworks that shape collective human life."
+  posts={posts}
+  font="Bahiana"
+  fontFamilyStyle="sans-serif"
+  fontSize="6.5rem"
+  fontWeight="0"
+  letterSpacing="0.05em"
+/>
