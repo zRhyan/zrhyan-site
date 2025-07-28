@@ -1,11 +1,6 @@
----
-title: A Física de Aristóteles e Suas Limitações
-description: Uma análise crítica do conceito de movimento e força na física aristotélica
-author: Rhyan Guidastre
-pubDate: 2025-07-28
-tags: [física, história da ciência, aristóteles, filosofia natural]
-layout: ../layouts/BlogPost.astro  # ou o layout que seu blog usa
----
+  
+
+  
 
 # A Gênese do Conceito de Força: A Física de Aristóteles e Suas Limitações
 
@@ -33,11 +28,8 @@ Para a acepção moderna na Física Clássica, Força é a variação na Quantid
   
 
 $$
-
 \overrightarrow{F}=\frac{d\overrightarrow{P}}{dt}=\frac{d\left(m\overrightarrow{v}\right)}{dt}
-
 $$
-
   
 
 Entretando, quais foram as discussões filosóficas que culminaram nessa acepção? Para entender sua gênese, precisamos retornar ao berço da física ocidental: Aristóteles.
