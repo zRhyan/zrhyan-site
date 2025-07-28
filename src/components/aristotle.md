@@ -12,7 +12,7 @@ A divisão da série será a seguinte:
 
 Neste primeiro artigo, examinaremos os fundamentos da Física aristotélica com especial atenção ao conceito de _tò kinoun_ — o “Motor”, entendido como causa direta de todo movimento. A análise será conduzida com base em passagens centrais da obra Física, de Aristóteles, cujas traduções são reproduzidas e interpretadas ao longo do texto. Além disso, procuraremos confrontar algumas teses aristotélicas com objeções de natureza empírica e conceitual, delineando assim suas limitações estruturais e antecipando os motivos que levaram à sua posterior superação.
 
-O objetivo central da série é evidenciar os meandros complexos do desenvolvimento da ideia de força — seja ao revelar momentos históricos de atrofamento das faculdades críticas, em que certas proposições foram aceitas sem o devido rigor, seja ao destacar a profundidade e obscuridade filosófica que, por vezes, envolveram o conceito, tornando-o de difícil inteligibilidade.
+O objetivo central da série é evidenciar os meandros complexos do desenvolvimento da ideia de força — seja ao revelar momentos históricos de atrofiamento das faculdades críticas, em que certas proposições foram aceitas sem o devido rigor, seja ao destacar a profundidade e obscuridade filosófica que, por vezes, envolveram o conceito, tornando-o de difícil inteligibilidade.
 
 ### 2. O que é Força?
 
