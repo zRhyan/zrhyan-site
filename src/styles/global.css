@@ -18,6 +18,7 @@
   --bg-current: var(--color-white);  /* default for light mode */
 }
 
+
 /* Step 3: Define dark/light mode behavior globally */
 
 body {
@@ -113,10 +114,29 @@ html.dark {
 
 /* Markdown styles */
 
+/* ---------------------------------------------
+   Markdown design‑tokens (herdam do tema)
+--------------------------------------------- */
+@theme {
+  --markdown-text: #111111;
+  --markdown-heading: #1e293b;   /* slate‑800 */
+  --markdown-code-bg: #f9f9f9;   /* light grey */
+  --markdown-code-text: #222222;
+  --markdown-table-head-bg: #f4f4f4;
+}
+
+html.dark {
+  --markdown-text: #e5e7eb;      /* slate‑200 */
+  --markdown-heading: #fafafa;   /* white */
+  --markdown-code-bg: #1f2937;   /* gray‑800 */
+  --markdown-code-text: #f8f8f2; /* near‑white */
+  --markdown-table-head-bg: #374151; /* gray‑700 */
+}
+
 .markdown-content {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  color: #ffffff;
+  color: var(--markdown-text);
   max-width: 800px; /* Define a largura máxima do conteúdo */
   margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
   padding: 0 1rem; /* Adiciona um pequeno espaçamento interno nas laterais */
@@ -131,7 +151,7 @@ html.dark {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  color: #fafafa; /* Certifique-se de que a cor seja visível no tema escuro */
+  color: var(--markdown-heading); 
 }
 
 .markdown-content h1 {
@@ -176,11 +196,11 @@ html.dark {
 }
 
 .markdown-content table th {
-  background-color: #f4f4f4;
+  background-color: var(--markdown-table-head-bg);
 }
 
 .markdown-content pre {
-  background-color: #f9f9f9;
+  background-color: var(--markdown-code-bg);
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
@@ -211,4 +231,58 @@ html.dark {
 /* Ajusta a cor do texto para fórmulas */
 .prose .katex-display {
   color: var(--color-foreground, #ffffff); /* Ajuste conforme o tema */
+}
+
+/* ---------------------------------------------
+   Markdown – Listas
+--------------------------------------------- */
+.markdown-content ul,
+.markdown-content ol {
+  margin-left: 1.5rem;   /* recuo padrão */
+  margin-bottom: 1rem;
+  padding-left: 0;       /* zera p/ evitar duplo recuo */
+}
+
+.markdown-content li {
+  position: relative;
+  padding-left: 0.75rem; /* espaço p/ o pseudo‑elemento */
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* –– Bullets personalizadas (UL) –– */
+.markdown-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(0.6em);      /* alinhamento vertical */
+  width: 0.45em;
+  height: 0.45em;
+  border-radius: 50%;
+  background: var(--color-primary);
+  transition: background-color .3s ease;
+}
+
+html.dark .markdown-content ul li::before {
+  background: var(--color-secondary);
+}
+
+/* –– Numeração estilizada (OL) –– */
+.markdown-content ol {
+  counter-reset: list-counter;
+}
+
+.markdown-content ol li::before {
+  counter-increment: list-counter;
+  content: counter(list-counter) '.';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color .3s ease;
+}
+
+html.dark .markdown-content ol li::before {
+  color: var(--color-secondary);
 }
