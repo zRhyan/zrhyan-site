@@ -16,7 +16,12 @@ const { title, date, topic, image, position, link } = Astro.props;
   <span class="animated-border pointer-events-none absolute inset-0 rounded-xl"></span>
 
   <!-- CARD CONTENT -->
-  <img src={image} alt={title} class="h-40 w-full object-cover rounded-t-xl" />
+  <img 
+    src={image} 
+    alt={title} 
+    class="h-40 w-full object-cover rounded-t-xl" 
+    style={`object-position: ${position};`} 
+  />
   <div class="p-4">
     <p class="text-xs text-gray-500 dark:text-gray-400">
       {date} • {topic}
