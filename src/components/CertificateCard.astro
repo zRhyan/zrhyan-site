@@ -1,0 +1,110 @@
+---
+// src/components/CertificateCard.astro
+import '../styles/global.css';
+
+const { title, issuer, date, pdfUrl, thumbnail } = Astro.props;
+---
+<article class="group relative block rounded-xl bg-white dark:bg-black shadow-md overflow-hidden h-full flex flex-col">
+  <span class="animated-border pointer-events-none absolute inset-0 rounded-xl"></span>
+
+  <!-- Imagem do certificado (maior e com aspect ratio fixo) -->
+  <div class="w-full h-56 shrink-0 overflow-hidden">
+    <img
+      src={thumbnail ?? '/placeholders/certificate-thumb.png'}
+      alt={`Miniatura do certificado ${title}`}
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Conteúdo do card -->
+  <div class="p-6 flex-1 flex flex-col justify-between">
+    <div class="mb-4">
+      <h3 class="text-xl font-semibold text-black dark:text-white leading-tight mb-2">
+        {title}
+      </h3>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+        {issuer} • {date}
+      </p>
+    </div>
+
+    <!-- Botões de ação -->
+    <div class="flex flex-col sm:flex-row gap-3">
+      <a
+        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-white font-medium hover:bg-secondary transition-all shadow-sm hover:shadow-md"
+        href={pdfUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Abrir ${title} em nova aba`}
+      >
+        <!-- Eye icon -->
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M2.458 12C3.732 7.943 7.523 5 12 5s8.268 2.943 9.542 7c-1.274 4.057-5.065 7-9.542 7s-8.268-2.943-9.542-7z" />
+        </svg>
+        Visualizar
+      </a>
+
+      <a
+        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border-2 border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-primary hover:shadow-md transition-all"
+        href={pdfUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+        aria-label={`Baixar ${title}`}
+      >
+        <!-- Download icon -->
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Baixar
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+/* Reaproveita a animação de borda do PostCard */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.animated-border {
+  --angle: 0deg;
+  --fill: var(--color-white);
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+html.dark .animated-border { --fill: var(--color-black); }
+
+@keyframes border-sweep {
+  from { --angle: 0deg; }
+  to   { --angle: 180deg; }
+}
+
+.group:hover .animated-border {
+  animation: border-sweep 1.2s ease forwards;
+  background: conic-gradient(
+    from var(--angle),
+    var(--color-secondary) 45deg,
+    var(--fill)            135deg,
+    var(--color-primary)   225deg,
+    var(--fill)            315deg,
+    var(--color-secondary) 360deg
+  ) border-box;
+  opacity: 1;
+}
+</style>

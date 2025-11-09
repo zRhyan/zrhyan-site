@@ -1,0 +1,109 @@
+---
+// src/pages/pt/certificados.astro
+
+import "../../../styles/global.css";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import CertificateCard from "../../../components/CertificateCard.astro";
+
+const CERTIFICATES = [
+  {
+    title: "OBA - Medalha de Prata",
+    issuer: "Olimíada Brasileira de Astronomia",
+    date: "2021",
+    pdfUrl: "https://drive.google.com/your-public-link-1",
+    thumbnail: "/cert-thumbs/Certificado-OBA-Prata.jpg"
+  },
+  {
+    title: "48 horas Inglês KNN's Keep Talking",
+    issuer: "KNN Idiomas",
+    date: "2022",
+    pdfUrl: "https://drive.google.com/your-public-link-2",
+    thumbnail: "/cert-thumbs/Certificado-KNN.jpg"
+  },
+  {
+    title: "KNN - 48 horas Inglês - KNN's Keep Talking",
+    issuer: "KNN Idiomas",
+    date: "2022",
+    pdfUrl: "https://drive.google.com/your-public-link-2",
+    thumbnail: "/cert-thumbs/Certificado-KNN.jpg"
+  },
+  {
+    title: "MyBeats - 120 horas Inglês - American Headway 4",
+    issuer: "Idiomas MyBeats",
+    date: "2020",
+    pdfUrl: "https://drive.google.com/your-public-link-4",
+    thumbnail: "/cert-thumbs/Certificado-My-Beats.jpg"
+  },
+  {
+    title: "Achieve - 120 horas Inglẽs - Reach Out 2",
+    issuer: "Coursera / Exemplo",
+    date: "Dez 2024",
+    pdfUrl: "https://drive.google.com/your-public-link-5",
+    thumbnail: "/cert-thumbs/Certificado-Reach-Out-2.jpg"
+  }
+];
+---
+
+<MainLayout title="Certificados — Rhyan">
+  <section class="max-w-7xl mx-auto text-left px-6 sm:px-10 lg:px-16 py-8">
+    <div class="mb-12">
+      <h1 class="text-4xl font-serif font-bold text-black dark:text-white mb-4">
+        Portfólio de Certificados
+      </h1>
+      <p class="text-base text-gray-700 dark:text-gray-300 max-w-3xl leading-relaxed">
+        Reuni aqui os certificados de cursos, formações e premiações que refletem minha trajetória acadêmica e técnica. 
+        Todos os arquivos estão disponíveis em PDF — clique em <strong>Visualizar</strong> para abrir em nova aba 
+        ou em <strong>Baixar</strong> para salvar localmente.
+      </p>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+        Observação: também disponibilizo um PDF consolidado com todos os certificados.
+      </p>
+    </div>
+
+    <!-- GRID DE CARDS - Melhor espaçamento e dimensionamento -->
+    <div 
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10"
+    >
+      {CERTIFICATES.map(cert => (
+        <CertificateCard
+          title={cert.title}
+          issuer={cert.issuer}
+          date={cert.date}
+          pdfUrl={cert.pdfUrl}
+          thumbnail={cert.thumbnail}
+        />
+      ))}
+    </div>
+
+    <!-- BOTÃO PDF CONSOLIDADO -->
+    <div class="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <a
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-secondary transition shadow-md hover:shadow-lg"
+        href="https://drive.google.com/your-public-link-consolidated"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <!-- Ícone -->
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Abrir PDF Consolidado
+      </a>
+
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        Link público: disponível para visualização sem login.
+      </p>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+/* Ajuste global de layout e espaçamento para maior conforto visual */
+@media (min-width: 1024px) {
+  main section {
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+  }
+}
+</style>
